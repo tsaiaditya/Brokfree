@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-y:scroll">
+
+<head>
+    <title>Search for Homes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+.page-cards{
+    display:block;
+    padding:25px;
+}
+
+.main-filter {
+  background: rgba(19, 35, 47, .9);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+  font-size: 14px;
+}
+
+.filter-panel-header {
+    color: white;
+    font-weight: 400;
+    display: block;
+    padding:4px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.proptype,.pref-tenant,.avail,.furn {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:white;
+    padding-top:10px;
+}
+
+.proptype input,.pref-tenant input,.avail input,.furn input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark,.checkmark1,.checkmark2,.checkmark3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+    margin-top:10px;
+}
+
+.proptype:hover input ~ .checkmark,.pref-tenant:hover input ~ .checkmark1,.avail:hover input ~ .checkmark2,.furn:hover input ~ .checkmark3 {
+    background-color: white;
+}
+
+.proptype input:checked ~ .checkmark,.pref-tenant input:checked ~ .checkmark1,.avail input:checked ~ .checkmark2,.furn input:checked ~ .checkmark3 {
+    background-color: rgb(91, 243, 77);
+}
+
+.checkmark:after,.checkmark1:after,.checkmark2:after,.checkmark3:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.proptype input:checked ~ .checkmark:after,.pref-tenant input:checked ~ .checkmark1:after,.avail input:checked ~ .checkmark2:after,.furn input:checked ~ .checkmark3:after {
+    display: block;
+}
+
+.proptype .checkmark:after,.pref-tenant .checkmark1:after,.avail .checkmark2:after,.furn .checkmark3:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+#slider,#range {
+    font-weight: bold;
+    margin-top:10px;
+    color:white;
+}
+
+.home-card{
+  background: peachpuff;
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+  font-size: 14px;
+}
+
+.house-name{
+    padding:5px;
+    font-size:20px;
+    font-weight: bold;
+}
+
+#house-detail{
+    display: block;
+    border-right:1px solid darkslategrey;
+    font-size:16px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:20px;
+    font-weight: bold;
+}
+
+</style>
+<script>
+    $(document).ready(function () {
+        $('#slider').slider({
+            max: 10000, range: true, values: [0, 10000], change: function (event, ui) {
+                getDetails(ui.values[0], ui.values[1]);
+            }
+        });
+        var current = $('#slider').slider('option', 'values');
+        getDetails(current[0], current[1]);
+    });
+    function getDetails(minimum, maximum) {
+        $('#range').text(" Rs." + minimum + " - Rs." + maximum);
+    }
+</script>
+<body style="background-color:rgb(238, 114, 13)">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">BrokFree</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#aboutUs">About Us</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>
+                            Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+                            Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form action="#" method="POST">
+                    <div class="main-filter">
+                        <span class="filter-panel-header">Apartment Type</span>
+                        <label class="proptype">1 RK
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="proptype">1 BHK
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="proptype">2 BHK
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="proptype">3 BHK
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="proptype">4 BHK
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="filter-panel-header">Price range</span>
+                        <span id="range"></span>
+                        <div id="slider"></div>
+                        <span class="filter-panel-header">Availability</span>
+                        <label class="avail">Immediate
+                            <input type="radio" name="radio1">
+                            <span class="checkmark2"></span>
+                        </label>
+                        <label class="avail">Within 15 Days
+                            <input type="radio" name="radio1">
+                            <span class="checkmark2"></span>
+                        </label>
+                        <label class="avail">Within 30 Days
+                            <input type="radio" name="radio1">
+                            <span class="checkmark2"></span>
+                        </label>
+                        <label class="avail">After 30 Days
+                            <input type="radio" name="radio1">
+                            <span class="checkmark2"></span>
+                        </label>
+                        <span class="filter-panel-header">Preferred Tenants</span>
+                        <label class="pref-tenant">Family
+                            <input type="radio" name="radio2">
+                            <span class="checkmark1"></span>
+                        </label>
+                        <label class="pref-tenant">Bachelor
+                            <input type="radio" name="radio2">
+                            <span class="checkmark1"></span>
+                        </label>
+                        <span class="filter-panel-header">Furnishing Type</span>
+                        <label class="furn">Full
+                            <input type="radio" name="radio3">
+                            <span class="checkmark3"></span>
+                        </label>
+                        <label class="furn">Semi
+                            <input type="radio" name="radio3">
+                            <span class="checkmark3"></span>
+                        </label>
+                        <label class="furn">No
+                            <input type="radio" name="radio3">
+                            <span class="checkmark3"></span>
+                        </label>
+                        <span class="filter-panel-header">
+                            <button type="submit" style="color:black; margin-top:15px;">Confirmed?</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <div class="page-cards">
+                    <div class="home-card">
+                        <div class="row" style="background-color: lightgrey; padding:5px;">
+                            <p class="house-name">Name of the House</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" id="house-detail">
+                                <p>Builtup</p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Deposit</p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Rent</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="http://cdn.home-designing.com/wp-content/uploads/2016/02/blue-and-yellow-nordic-decor-300x250.jpg" style="width:100%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-couch" style="font-size:30px"></i>
+                                        <p>FURNISHING</p>
+                                    </div>
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>AGE OF THE BUILDING</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>PREFERRED TENANTS</p>
+                                    </div>
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>AVAILABILITY</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-card">
+                        <div class="row" style="background-color: lightgrey; padding:5px;">
+                            <p class="house-name">Name of the House</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" id="house-detail">
+                                <p>Builtup</p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Deposit</p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Rent</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="http://cdn.home-designing.com/wp-content/uploads/2016/02/blue-and-yellow-nordic-decor-300x250.jpg"
+                                    style="width:100%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-couch" style="font-size:30px"></i>
+                                        <p>FURNISHING</p>
+                                    </div>
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>AGE OF THE BUILDING</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>PREFERRED TENANTS</p>
+                                    </div>
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>AVAILABILITY</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-card">
+                        <div class="row" style="background-color: lightgrey; padding:5px;">
+                            <p class="house-name">Name of the House</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" id="house-detail">
+                                <p>Builtup</p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Deposit</p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Rent</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="http://cdn.home-designing.com/wp-content/uploads/2016/02/blue-and-yellow-nordic-decor-300x250.jpg"
+                                    style="width:100%;">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-couch" style="font-size:30px"></i>
+                                        <p>FURNISHING</p>
+                                    </div>
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>AGE OF THE BUILDING</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>PREFERRED TENANTS</p>
+                                    </div>
+                                    <div class="col-md-6" style="color:black">
+                                        <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                        <p>AVAILABILITY</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+           
+        });
+    </script>
+</body>
+</html>
