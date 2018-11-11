@@ -19,6 +19,12 @@ body {
   background-attachment:fixed;
   background-repeat: no-repeat;
   background-position: center center;
+  opacity : 0;
+  transition : opacity 1s ease; 
+}
+
+.loaded {
+   opacity : 1;
 }
 
 #regForm {
@@ -104,7 +110,7 @@ button:hover {
 }
 </style>
 
-<body>
+<body onload="document.body.classList.add('loaded')">
 
     <form id="regForm" action="">
         <h1>Posting Ad :</h1>

@@ -129,6 +129,15 @@
     font-weight: bold;
 }
 
+body {
+    opacity : 0;
+    transition : opacity 1s ease; 
+}
+
+.loaded {
+   opacity : 1;
+}
+
 </style>
 <script>
     $(document).ready(function () {
@@ -144,7 +153,7 @@
         $('#range').text(" Rs." + minimum + " - Rs." + maximum);
     }
 </script>
-<body style="background-color:rgb(238, 114, 13)">
+<body style="background-color:rgb(238, 114, 13)" onload="document.body.classList.add('loaded')">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -153,15 +162,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">BrokFree</a>
+                <a class="navbar-brand" href="homepage.html">BrokFree</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#aboutUs">About Us</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>
-                            Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-                            Login</a></li>
+                    <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </div>
@@ -242,6 +249,7 @@
             </div>
             <div class="col-md-8">
                 <div class="page-cards">
+                    <a href="view-home.html" style="text-decoration: none;">
                     <div class="home-card">
                         <div class="row" style="background-color: lightgrey; padding:5px;">
                             <p class="house-name">Name of the House</p>
@@ -258,33 +266,26 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <img src="http://cdn.home-designing.com/wp-content/uploads/2016/02/blue-and-yellow-nordic-decor-300x250.jpg" style="width:100%;">
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-couch" style="font-size:30px"></i>
+                                <p>FURNISHING</p>
                             </div>
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-couch" style="font-size:30px"></i>
-                                        <p>FURNISHING</p>
-                                    </div>
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>AGE OF THE BUILDING</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>PREFERRED TENANTS</p>
-                                    </div>
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>AVAILABILITY</p>
-                                    </div>
-                                </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AGE OF THE BUILDING</p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                <p>PREFERRED TENANTS</p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AVAILABILITY</p>
                             </div>
                         </div>
                     </div>
+                    </a>
+                    <a href="view-home.html">
                     <div class="home-card">
                         <div class="row" style="background-color: lightgrey; padding:5px;">
                             <p class="house-name">Name of the House</p>
@@ -301,34 +302,26 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <img src="http://cdn.home-designing.com/wp-content/uploads/2016/02/blue-and-yellow-nordic-decor-300x250.jpg"
-                                    style="width:100%;">
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-couch" style="font-size:30px"></i>
+                                <p>FURNISHING</p>
                             </div>
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-couch" style="font-size:30px"></i>
-                                        <p>FURNISHING</p>
-                                    </div>
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>AGE OF THE BUILDING</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>PREFERRED TENANTS</p>
-                                    </div>
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>AVAILABILITY</p>
-                                    </div>
-                                </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AGE OF THE BUILDING</p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                <p>PREFERRED TENANTS</p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AVAILABILITY</p>
                             </div>
                         </div>
                     </div>
+                    </a>
+                    <a href="view-home.html">
                     <div class="home-card">
                         <div class="row" style="background-color: lightgrey; padding:5px;">
                             <p class="house-name">Name of the House</p>
@@ -345,42 +338,28 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <img src="http://cdn.home-designing.com/wp-content/uploads/2016/02/blue-and-yellow-nordic-decor-300x250.jpg"
-                                    style="width:100%;">
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-couch" style="font-size:30px"></i>
+                                <p>FURNISHING</p>
                             </div>
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-couch" style="font-size:30px"></i>
-                                        <p>FURNISHING</p>
-                                    </div>
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>AGE OF THE BUILDING</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>PREFERRED TENANTS</p>
-                                    </div>
-                                    <div class="col-md-6" style="color:black">
-                                        <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                        <p>AVAILABILITY</p>
-                                    </div>
-                                </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AGE OF THE BUILDING</p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                <p>PREFERRED TENANTS</p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AVAILABILITY</p>
                             </div>
                         </div>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(function(){
-           
-        });
-    </script>
 </body>
 </html>

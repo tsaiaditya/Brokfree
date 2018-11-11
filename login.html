@@ -20,6 +20,11 @@
 body {
   background: #2f3ec9;
   font-family: 'Titillium Web', sans-serif;
+  opacity:0;
+  transition: opacity 1s ease;
+}
+.loaded {
+    opacity:1;
 }
 h1 {
   text-align: center;
@@ -129,7 +134,7 @@ textarea {
 }
 </style>
 
-<body>
+<body onload="document.body.classList.add('loaded')">
     <div class="container">
         <div class="form">
             <div class="tab-content">

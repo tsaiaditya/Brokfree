@@ -20,6 +20,11 @@ body {
   background-attachment:fixed;
   background-repeat: no-repeat;
   background-position: center center;
+  opacity:0;
+  transition: opacity 1s ease;
+}
+.loaded {
+    opacity:1;
 }
 .row-header{
     background: rgb(199, 195, 195);
@@ -72,7 +77,7 @@ body {
 </style>
 </head>
 
-<body>
+<body onload="document.body.classList.add('loaded')">
 
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -82,15 +87,13 @@ body {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">BrokFree</a>
+                <a class="navbar-brand" href="homepage.html">BrokFree</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#aboutUs">About Us</a></li>
-                    <li><a href="F:\Aditya\VIT\cse\web development\Brokfree webpages\signup-login.html"><span class="glyphicon glyphicon-user"></span>
-                            Sign Up</a></li>
-                    <li><a href="F:\Aditya\VIT\cse\web development\Brokfree webpages\signup-login.html"><span class="glyphicon glyphicon-log-in"></span>
-                            Login</a></li>
+                    <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </div>

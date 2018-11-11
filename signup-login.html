@@ -15,6 +15,11 @@ html {
 body {
   background: #2f3ec9;
   font-family: 'Titillium Web', sans-serif;
+  opacity:0;
+  transition: opacity 1s ease;
+}
+.loaded {
+    opacity:1;
 }
 a {
   text-decoration: none;
@@ -164,7 +169,7 @@ textarea {
 }
 
 </style>
-<body>
+<body onload="document.body.classList.add('loaded')">
     <div class="form">
 
         <ul class="tab-group">
@@ -176,7 +181,7 @@ textarea {
             <div id="signup">
                 <h1>Sign Up for Free</h1>
 
-                <form action="#" method="post">
+                <form action="F:\Aditya\VIT\CSE\web development\html\jquery testing.html" method="post">
 
                     <div class="top-row">
                         <div class="field-wrap">
@@ -224,7 +229,7 @@ textarea {
             <div id="login">
                 <h1>Welcome Back!</h1>
 
-                <form action="#" method="post">
+                <form action="F:\Aditya\VIT\CSE\web development\html\jquery testing.html" method="post">
 
                     <div class="field-wrap">
                         <label>
