@@ -326,7 +326,7 @@ button:hover {
             // This function will figure out which tab to display
             var x = document.getElementsByClassName("tab");
             // Exit the function if any field in the current tab is invalid:
-            if (n == 1 && !validateForm()) return false;
+            if (n == 1 && (!validateForm() || !radioinputcheck())) return false;
             // Hide the current tab:
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
@@ -358,28 +358,32 @@ button:hover {
                 }
             }
 
-            //radio input checker for phase 2
-            var z = x[currentTab].getElementsByClassName("radio-type");
-            if(z.length==0) {
-                valid=true;
-            }
-            else if(z.length==25){
-            if(!((z.prop_type.checked || z.prop_type1) && (z.water_supply.checked || z.water_supply1.checked || z.water_supply2.checked) && (z.tenant_type.checked || z.tenant_type1.checked || z.tenant_type2 || z.tenant_type3.checked) && (z.direction.checked || z.direction1.checked || z.direction2.checked || z.direction3) && (z.furnish_type.checked || z.furnish_type1.checked || z.furnish_type2.checked) && (z.parking_type.checked || z.parking_type1.checked || z.parking_type2.checked) && (z.possession_type.checked || z.possession_type1.checked) && (z.non_veg_allowance.checked || z.non_veg_allowance1.checked))) {
-                valid=false;
-                alert('Please check all the boxes whether filled or not.');
-            }
-            else {
-                valid=true;
-            }
-            }
-            else {
-                valid=true;
-            }
             // If the valid status is true, mark the step as finished and valid:
             if (valid) {
                 document.getElementsByClassName("step")[currentTab].className += " finish";
             }
             return valid; // return the valid status
+        }
+
+        function radioinputcheck(){
+            //radio input checker for phase 2
+            var x;
+            x = document.getElementsByClassName("tab");
+            var z = x[currentTab].getElementsByClassName("radio-type");
+            var valid=true;
+            if (z.length == 25) {
+                if (!((z.prop_type.checked || z.prop_type1) && (z.water_supply.checked || z.water_supply1.checked || z.water_supply2.checked) && (z.tenant_type.checked || z.tenant_type1.checked || z.tenant_type2 || z.tenant_type3.checked) && (z.direction.checked || z.direction1.checked || z.direction2.checked || z.direction3) && (z.furnish_type.checked || z.furnish_type1.checked || z.furnish_type2.checked) && (z.parking_type.checked || z.parking_type1.checked || z.parking_type2.checked) && (z.possession_type.checked || z.possession_type1.checked) && (z.non_veg_allowance.checked || z.non_veg_allowance1.checked))) {
+                    valid = false;
+                    alert('Please check all the boxes whether filled or not.');
+                }
+                else {
+                    valid = true;
+                }
+            }
+            else {
+                valid = true;
+            }
+            return valid;
         }
 
         function fixStepIndicator(n) {
