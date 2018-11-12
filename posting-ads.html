@@ -60,7 +60,7 @@ input.invalid {
 }
 
 p.radio{
-    display:flex;
+    display:block;
     margin:0px;
     padding:10px;
     width:80%;
@@ -151,125 +151,128 @@ button:hover {
             <p>
                 <input class="normal" placeholder="Number of Bedrooms in the house..." oninput="this.className = ''" name="no_of_bedrooms">
             </p>
-            <p class="radio">Property Type ?
-                <input class="radio-type" type="radio" name="prop_type" value="Apartment">Apartment
-                <input class="radio-type" type="radio" name="prop_type" value="Individual House">Individual House
+            <p class="radio">Property Type ?<br><br>
+                <input class="radio-type" type="radio" name="prop_type" value="Apartment" required>Apartment
+                <input class="radio-type" type="radio" name="prop_type1" value="Individual House">Individual House
             </p>
-            <p class="radio">Preferred Tenants ?
-                <input class="radio-type" type="radio" name="tenant_type" value="Family">Family
-                <input class="radio-type" type="radio" name="tenant_type" value="Bachelors">Bachelors
+            <p class="radio">Preferred Tenants ?<br><br>
+                <input class="radio-type" type="radio" name="tenant_type" value="Family" required>Family
+                <input class="radio-type" type="radio" name="tenant_type1" value="Bachelors">Bachelors
+                <input class="radio-type" type="radio" name="tenant_type2" value="Company">Company
+                <input class="radio-type" type="radio" name="tenant_type3" value="Doesnt_matter">Doesn't matter
             </p>
-            <p class="radio">Possession Type ?
-                <input class="radio-type" type="radio" name="possession_type" value="Immediately">Immediately
-                <input class="radio-type" type="radio" name="possession_type" value="Few Weeks">Few Weeks
+            <p class="radio">Possession Type ?<br><br>
+                <input class="radio-type" type="radio" name="possession_type" value="Immediately" required>Immediately
+                <input class="radio-type" type="radio" name="possession_type1" value="Few Weeks">Few Weeks
             </p>
-            <p class="radio">Parking Type ?
-                <input class="radio-type" type="radio" name="parking_type" value="bike">Bike only
-                <input class="radio-type" type="radio" name="parking_type" value="bikeandcar">Bike and Car
-                <input class="radio-type" type="radio" name="parking_type" value="car">Car only
+            <p class="radio">Parking Type ?<br><br>
+                <input class="radio-type" type="radio" name="parking_type" value="bike" required>Bike only
+                <input class="radio-type" type="radio" name="parking_type1" value="bikeandcar">Bike and Car
+                <input class="radio-type" type="radio" name="parking_type2" value="car">Car only
             </p>
             <p>
                 <input class="normal" placeholder="Age of the Building..." oninput="this.className = ''" name="building_age">
             </p>
-            <p class="radio">Furnishing ?
-                <input class="radio-type" type="radio" name="furnish_type" value="semi">Semi-Furnished
-                <input class="radio-type" type="radio" name="furnish_type" value="fully">Fully-Furnished
+            <p class="radio">Furnishing ?<br><br>
+                <input class="radio-type" type="radio" name="furnish_type" value="semi" required>Semi-Furnished
+                <input class="radio-type" type="radio" name="furnish_type1" value="fully">Fully-Furnished
+                <input class="radio-type" type="radio" name="furnish_type2" value="not_furnished">Unfurnished
             </p>
-            <p class="radio">Direction in which house is facing ?
-                <input class="radio-type" type="radio" name="direction" value="north">North
-                <input class="radio-type" type="radio" name="direction" value="south">South
-                <input class="radio-type" type="radio" name="direction" value="east">East
-                <input class="radio-type" type="radio" name="direction" value="west">West
+            <p class="radio">Direction in which house is facing ?<br><br>
+                <input class="radio-type" type="radio" name="direction" value="north" required>North
+                <input class="radio-type" type="radio" name="direction1" value="south">South
+                <input class="radio-type" type="radio" name="direction2" value="east">East
+                <input class="radio-type" type="radio" name="direction3" value="west">West
             </p>
-            <p class="radio">Water Supply getting from ?
-                <input class="radio-type" type="radio" name="water_supply" value="corporation">Corporation
-                <input class="radio-type" type="radio" name="water_supply" value="borewell">Borewell
-                <input class="radio-type" type="radio" name="water_supply" value="corporation&borewell">Both
+            <p class="radio">Water Supply getting from ?<br><br>
+                <input class="radio-type" type="radio" name="water_supply" value="corporation" required>Corporation
+                <input class="radio-type" type="radio" name="water_supply1" value="borewell">Borewell
+                <input class="radio-type" type="radio" name="water_supply2" value="corporation&borewell">Both
             </p>
-            <p class="radio">Security Guards ?
-                <input class="radio-type" type="radio" name="security" value="secured">Yes
-                <input class="radio-type" type="radio" name="security" value="unsecured">No
+            <p class="radio">Security Guards ?<br><br>
+                <input class="radio-type" type="radio" name="security" value="secured" required>Yes
+                <input class="radio-type" type="radio" name="security1" value="unsecured">No
             </p>
             <p>
                 <input class="normal" placeholder="Number of bathrooms..." oninput="this.className = ''" name="no_of_bathrooms">
             </p>
-            <p class="radio">Non-Veg allowed in house ?
-                <input class="radio-type" type="radio" name="non_veg_allowance" value="allowed">Yes
-                <input class="radio-type" type="radio" name="non_veg_allowance" value="not_allowed">No
+            <p class="radio">Non-Veg allowed in house ?<br><br>
+                <input class="radio-type" type="radio" name="non_veg_allowance" value="allowed" required>Yes
+                <input class="radio-type" type="radio" name="non_veg_allowance1" value="not_allowed">No
             </p>
         </div>
         <div class="tab">Phase 3:
-            <p class="radio">Lift facility ?
+            <p class="radio">Lift facility ?<br><br>
                 <input class="radio-type" type="radio" name="lift_facility" value="there">Yes
-                <input class="radio-type" type="radio" name="lift_facility" value="not_there">No
+                <input class="radio-type" type="radio" name="lift_facility" value="not_there" checked>No
             </p>
-            <p class="radio">Air Conditioner facility ?
+            <p class="radio">Air Conditioner facility ?<br><br>
                 <input class="radio-type" type="radio" name="airconditioner" value="there">Yes
-                <input class="radio-type" type="radio" name="airconditioner" value="not_there">No
+                <input class="radio-type" type="radio" name="airconditioner" value="not_there" checked>No
             </p>
-            <p class="radio">Swimming Pool ?
+            <p class="radio">Swimming Pool ?<br><br>
                 <input class="radio-type" type="radio" name="swimming_pool" value="there">Yes
-                <input class="radio-type" type="radio" name="swimming_pool" value="not_there">No
+                <input class="radio-type" type="radio" name="swimming_pool" value="not_there" checked>No
             </p>
-            <p class="radio">Servant room in house ?
+            <p class="radio">Servant room in house ?<br><br>
                 <input class="radio-type" type="radio" name="servant_room" value="there">Yes
-                <input class="radio-type" type="radio" name="servant_room" value="not_there">No
+                <input class="radio-type" type="radio" name="servant_room" value="not_there" checked>No
             </p>
-            <p class="radio">Gas pipeline for house ?
+            <p class="radio">Gas pipeline for house ?<br><br>
                 <input class="radio-type" type="radio" name="gas_pipeline" value="allowed">Yes
-                <input class="radio-type" type="radio" name="gas_pipeline" value="not_allowed">No
+                <input class="radio-type" type="radio" name="gas_pipeline" value="not_allowed" checked>No
             </p>
-            <p class="radio">Sewage Treatment plant for house ?
+            <p class="radio">Sewage Treatment plant for house ?<br><br>
                 <input class="radio-type" type="radio" name="sewage_treatment" value="there">Yes
-                <input class="radio-type" type="radio" name="sewage_treatment" value="not_there">No
+                <input class="radio-type" type="radio" name="sewage_treatment" value="not_there" checked>No
             </p>
-            <p class="radio">Visitor Parking facility ?
+            <p class="radio">Visitor Parking facility ?<br><br>
                 <input class="radio-type" type="radio" name="visitor_parking" value="there">Yes
-                <input class="radio-type" type="radio" name="visitor_parking" value="not_there">No
+                <input class="radio-type" type="radio" name="visitor_parking" value="not_there" checked>No
             </p>
-            <p class="radio">Gym facility ?
+            <p class="radio">Gym facility ?<br><br>
                 <input class="radio-type" type="radio" name="gym_facility" value="there">Yes
-                <input class="radio-type" type="radio" name="gym_facility" value="not_there">No
+                <input class="radio-type" type="radio" name="gym_facility" value="not_there" checked>No
             </p>
-            <p class="radio">Club House ?
+            <p class="radio">Club House ?<br><br>
                 <input class="radio-type" type="radio" name="club_house" value="there">Yes
-                <input class="radio-type" type="radio" name="club_house" value="not_there">No
+                <input class="radio-type" type="radio" name="club_house" value="not_there" checked>No
             </p>
-            <p class="radio">Children's Play Area there ?
+            <p class="radio">Children's Play Area there ?<br><br>
                 <input class="radio-type" type="radio" name="child_play_area" value="there">Yes
-                <input class="radio-type" type="radio" name="child_play_area" value="not_there">No
+                <input class="radio-type" type="radio" name="child_play_area" value="not_there" checked>No
             </p>
-            <p class="radio">Park nearby ?
+            <p class="radio">Park nearby ?<br><br>
                 <input class="radio-type" type="radio" name="park" value="there">Yes
-                <input class="radio-type" type="radio" name="park" value="not_there">No
+                <input class="radio-type" type="radio" name="park" value="not_there" checked>No
             </p>
-            <p class="radio">House Keeping Services available?
+            <p class="radio">House Keeping Services available?<br><br>
                 <input class="radio-type" type="radio" name="house_keeping" value="there">Yes
-                <input class="radio-type" type="radio" name="house_keeping" value="not_there">No
+                <input class="radio-type" type="radio" name="house_keeping" value="not_there" checked>No
             </p>
-            <p class="radio">Internet Services provided ?
+            <p class="radio">Internet Services provided ?<br><br>
                 <input class="radio-type" type="radio" name="internet" value="there">Yes
-                <input class="radio-type" type="radio" name="internet" value="not_there">No
+                <input class="radio-type" type="radio" name="internet" value="not_there" checked>No
             </p>
-            <p class="radio">Intercom provided ?
+            <p class="radio">Intercom provided ?<br><br>
                 <input class="radio-type" type="radio" name="intercom" value="there">Yes
-                <input class="radio-type" type="radio" name="intercom" value="not_there">No
+                <input class="radio-type" type="radio" name="intercom" value="not_there" checked>No
             </p>
-            <p class="radio">Fire Safety ensured ?
+            <p class="radio">Fire Safety ensured ?<br><br>
                 <input class="radio-type" type="radio" name="fire_safety" value="there">Yes
-                <input class="radio-type" type="radio" name="fire_safety" value="not_there">No
+                <input class="radio-type" type="radio" name="fire_safety" value="not_there" checked>No
             </p>
-            <p class="radio">Shopping Center Nearby ?
+            <p class="radio">Shopping Center Nearby ?<br><br>
                 <input class="radio-type" type="radio" name="shopping" value="there">Yes
-                <input class="radio-type" type="radio" name="shopping" value="not_there">No
+                <input class="radio-type" type="radio" name="shopping" value="not_there" checked>No
             </p>
-            <p class="radio">Rainwater Harvesting Facility ?
+            <p class="radio">Rainwater Harvesting Facility ?<br><br>
                 <input class="radio-type" type="radio" name="rainwater_harvesting" value="there">Yes
-                <input class="radio-type" type="radio" name="rainwater_harvesting" value="not_there">No
+                <input class="radio-type" type="radio" name="rainwater_harvesting" value="not_there" checked>No
             </p>
-            <p class="radio">Power Backup ensured ?
+            <p class="radio">Power Backup ensured ?<br><br>
                 <input class="radio-type" type="radio" name="power_backup" value="there">Yes
-                <input class="radio-type" type="radio" name="power_backup" value="not_there">No
+                <input class="radio-type" type="radio" name="power_backup" value="not_there" checked>No
             </p>
         </div>
         <div style="overflow:auto;">
@@ -343,6 +346,7 @@ button:hover {
             var x, y, i, valid = true;
             x = document.getElementsByClassName("tab");
             y = x[currentTab].getElementsByTagName("input");
+            
             // A loop that checks every input field in the current tab:
             for (i = 0; i < y.length; i++) {
                 // If a field is empty...
@@ -352,6 +356,24 @@ button:hover {
                     // and set the current valid status to false
                     valid = false;
                 }
+            }
+
+            //radio input checker for phase 2
+            var z = x[currentTab].getElementsByClassName("radio-type");
+            if(z.length==0) {
+                valid=true;
+            }
+            else if(z.length==25){
+            if(!((z.prop_type.checked || z.prop_type1) && (z.water_supply.checked || z.water_supply1.checked || z.water_supply2.checked) && (z.tenant_type.checked || z.tenant_type1.checked || z.tenant_type2 || z.tenant_type3.checked) && (z.direction.checked || z.direction1.checked || z.direction2.checked || z.direction3) && (z.furnish_type.checked || z.furnish_type1.checked || z.furnish_type2.checked) && (z.parking_type.checked || z.parking_type1.checked || z.parking_type2.checked) && (z.possession_type.checked || z.possession_type1.checked) && (z.non_veg_allowance.checked || z.non_veg_allowance1.checked))) {
+                valid=false;
+                alert('Please check all the boxes whether filled or not.');
+            }
+            else {
+                valid=true;
+            }
+            }
+            else {
+                valid=true;
             }
             // If the valid status is true, mark the step as finished and valid:
             if (valid) {
@@ -379,6 +401,11 @@ button:hover {
                 x.value = position.coords.latitude;
                 y.value = position.coords.longitude;
             }
+
+        //var a = document.getElementsByClassName("tab");
+        //var b = a[1].getElementsByClassName('radio-type');
+        //b.required=true;
+        
     </script>
 </body>
 
