@@ -9,72 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-body {
-  margin:0;
-  padding:0;
-  content:'';
-  width:100vw;
-  height:100vh;
-  background-image: url(https://i.imgur.com/w439mEw.jpg);
-  background-attachment:fixed;
-  background-repeat: no-repeat;
-  background-position: center center;
-  opacity:0;
-  transition: opacity 1s ease;
-}
-.loaded {
-    opacity:1;
-}
-.row-header{
-    background: rgb(199, 195, 195);
-    margin: 40px auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
-    font-size: 14px;
-}
-.house-name{
-    padding:5px;
-    font-size:20px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-.house-detail {
-    padding:5px;
-    font-size:15px;
-    font-weight: bold;
-    margin-top: 10px;
-    display: block;
-    border-right:solid 1px black;
-}
-.link {
-    background-color:orange;
-    margin: 10px 195px 10px 180px;
-    font-size:16px;
-    text-decoration: none;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
-}
-#in-detail {
-    display:block;
-    border:1px solid black;
-    padding:20px;
-    
-}
-.heading {
-    text-align:center;
-}
-#overview{
-    padding:inherit;
-}
-.description{
-    padding:20px;
-    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
-    margin:30px 30px 10px 30px;
-}
-.content {
-    font-weight: bold;
-}
-</style>
+    <link rel="stylesheet" href="view-home.css">
 </head>
 
 <body onload="document.body.classList.add('loaded')">
@@ -120,8 +55,7 @@ body {
                     <a id="get_location" href="#" style="color:white;">Click here to get the home's location</a>
                 </div>
                 <div id="Map">
-                    <iframe id="google_map" width="640" height="490" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://maps.google.co.in?output=embed"></iframe>
+                    <iframe id="google_map" width="640" height="490" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in?output=embed"></iframe>
                 </div>
             </div>
             <div class="col-md-5" style="margin-top:43px; box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);">

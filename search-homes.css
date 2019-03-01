@@ -1,0 +1,131 @@
+
+.page-cards{
+    display:block;
+    padding:25px;
+}
+
+.main-filter {
+  background: rgba(19, 35, 47, .9);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+  font-size: 14px;
+}
+
+.filter-panel-header {
+    color: white;
+    display: block;
+    padding:4px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.location {
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 3px;
+    font-size: 18px;
+}
+
+.proptype,.pref-tenant,.avail,.furn {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:white;
+    padding-top:10px;
+}
+
+.proptype input,.pref-tenant input,.avail input,.furn input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark,.checkmark1,.checkmark2,.checkmark3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+    margin-top:10px;
+}
+
+.proptype:hover input ~ .checkmark,.pref-tenant:hover input ~ .checkmark1,.avail:hover input ~ .checkmark2,.furn:hover input ~ .checkmark3 {
+    background-color: white;
+}
+
+.proptype input:checked ~ .checkmark,.pref-tenant input:checked ~ .checkmark1,.avail input:checked ~ .checkmark2,.furn input:checked ~ .checkmark3 {
+    background-color: rgb(91, 243, 77);
+}
+
+.checkmark:after,.checkmark1:after,.checkmark2:after,.checkmark3:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.proptype input:checked ~ .checkmark:after,.pref-tenant input:checked ~ .checkmark1:after,.avail input:checked ~ .checkmark2:after,.furn input:checked ~ .checkmark3:after {
+    display: block;
+}
+
+.proptype .checkmark:after,.pref-tenant .checkmark1:after,.avail .checkmark2:after,.furn .checkmark3:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+#slider,#range {
+    font-weight: bold;
+    margin-top:10px;
+    color:white;
+}
+
+.home-card{
+  background: peachpuff;
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+  font-size: 14px;
+}
+
+.house-name{
+    padding:5px;
+    font-size:20px;
+    font-weight: bold;
+}
+
+#house-detail{
+    display: block;
+    border-right:1px solid darkslategrey;
+    font-size:16px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:20px;
+    font-weight: bold;
+}
+
+body {
+    opacity : 0;
+    transition : opacity 1s ease; 
+}
+
+.loaded {
+   opacity : 1;
+}
