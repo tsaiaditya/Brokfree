@@ -4,7 +4,7 @@ $user=$pass="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $user = test_input($_POST['uname']);
 $pass = test_input($_POST['password']);
-$con = new mysqli('localhost','root','Aditya@1999','brokfree');
+$con = new mysqli('localhost','root','','brokfree'); //The blank space is the password for your mysql server.
 $sql = "select * from login where uname = '$user' and password = '$pass'";
 $result = $con->query($sql);
 $num = $result->num_rows;
