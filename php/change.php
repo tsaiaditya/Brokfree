@@ -3,7 +3,7 @@ session_start();
 $user = $_POST['username'];
 $pass = $_POST['password'];
 $new_pass = $_POST['newpassword'];
-$con = new mysqli('localhost','root','Aditya@1999','brokfree');
+$con = new mysqli('localhost','root','','brokfree'); //the blank part is the password for your mysql server.
 $sql = "select * from login where uname = '$user' and password = '$pass'";
 $result = $con->query($sql);
 if($result->num_rows==0)
