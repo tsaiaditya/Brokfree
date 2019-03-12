@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  background: greenyellow;
+  font-family: sans-serif;
+  -webkit-animation: fadein 1s;
+}
+
+@-webkit-keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+.container {
+    padding:50px;
+    background: rgba(19, 35, 47, .9);
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+    display:block;
+}
+
+.header {
+    text-align: center;
+    margin-bottom:20px;
+
+}
+
+.heading {
+    color:white;
+}
+
+.col-form-label{
+    font-size:inherit;
+    padding:10px;
+    color:white;
+}
+
+.contents {
+    margin-left: 0px;
+    display: block;
+    padding:20px;
+}
+
+#fname,#lname,#date,#mail,#mob_no,#username {
+    color:white;
+    display:inline;
+}
+
+.userpicture {
+    display:block;
+    text-align: center;
+    color:white;
+    padding:20px;
+}
+
+.go-to-home {
+    text-align:center;
+    padding:30px;
+}

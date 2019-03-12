@@ -124,3 +124,9 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+h3 {
+  color: white;
+}
+.button:focus>h3{
+  display:block;
+}
