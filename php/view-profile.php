@@ -5,7 +5,7 @@ session_start();
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="view-profile.css" type = "text/css">
+    <link rel="stylesheet" href="../css/view-profile.css" type = "text/css">
 </head>
 <body>
     <div class="container">
@@ -40,7 +40,7 @@ session_start();
                 <label class="col-4 col-form-label">Username : </label>
                 <p class="col-8" id="username"><?php echo $_SESSION['user'];?></p>
             </div>
-            <a href="change.html" style = "text-decoration : none; color: white; font-size : 16px;">Change passoword?</a>
+            <a href="../html/change.html" style = "text-decoration : none; color: white; font-size : 16px;">Change passoword?</a>
             <div class="go-to-home">
                 <a href="homepage.php">
                 <button class="btn btn-danger" style="border-radius: 20px;">Go back to Homepage</button>

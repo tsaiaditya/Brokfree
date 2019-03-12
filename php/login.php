@@ -41,7 +41,7 @@ function test_input($data) {
     <title>Login to Brokfree</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="login.css" type="text/css">
+    <link rel="stylesheet" href="../css/login.css" type="text/css">
 </head>
 
 <body onload="document.body.classList.add('loaded')">

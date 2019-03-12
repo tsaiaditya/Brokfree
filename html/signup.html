@@ -3,61 +3,61 @@
     <title>Signup for Brokfree</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="signup.css" type="text/css">
+    <link rel="stylesheet" href="../css/signup.css" type="text/css">
 </head>
 <body onload="document.body.classList.add('loaded')">
     <div class="container">
             <div class="form">
                 <div class="tab-content">
-                <form action="signup.php" method="POST">
-                <h1>Signup</h1>
-                <div class="top-row">
-                    <div class="field-wrap">
-                        <label>
-                            First Name<span class="req">*</span>
-                        </label>
-                        <input type="text" required autocomplete="off" name = "fname">
-                    </div>
-                
-                    <div class="field-wrap">
-                        <label>
-                            Last Name<span class="req">*</span>
-                        </label>
-                        <input type="text" required autocomplete="off" name = "lname">
-                    </div>
-                </div>
-                
-                <div class="field-wrap">
-                    <label>
-                        Email Address<span class="req">*</span>
-                    </label>
-                    <input type="email" required autocomplete="off" name = "email">
-                </div>
-                
-                <div class="field-wrap">
-                    <label>
-                        Mobile number<span class="req">*</span>
-                    </label>
-                    <input type="text" required autocomplete="off" name = "mob">
-                </div>
+                    <form action="../php/signup.php" method="POST">
+                        <h1>Signup</h1>
+                        <div class="top-row">
+                            <div class="field-wrap">
+                                <label>
+                                    First Name<span class="req">*</span>
+                                </label>
+                                <input type="text" required autocomplete="off" name = "fname">
+                            </div>
+                        
+                            <div class="field-wrap">
+                                <label>
+                                    Last Name<span class="req">*</span>
+                                </label>
+                                <input type="text" required autocomplete="off" name = "lname">
+                            </div>
+                        </div>
+                        
+                        <div class="field-wrap">
+                            <label>
+                                Email Address<span class="req">*</span>
+                            </label>
+                            <input type="email" required autocomplete="off" name = "email">
+                        </div>
+                        
+                        <div class="field-wrap">
+                            <label>
+                                Mobile number<span class="req">*</span>
+                            </label>
+                            <input type="text" required autocomplete="off" name = "mob">
+                        </div>
 
-                <div class="field-wrap">
-                    <label>
-                        Username <span class="req">*</span>
-                    </label>
-                    <input type="text" required autocomplete="off" name="uname">
+                        <div class="field-wrap">
+                            <label>
+                                Username <span class="req">*</span>
+                            </label>
+                            <input type="text" required autocomplete="off" name="uname">
+                        </div>
+                        
+                        <div class="field-wrap">
+                            <label>
+                                Set A Password<span class="req">*</span>
+                            </label>
+                            <input type="password" required autocomplete="off" name = "password">
+                        </div>
+                        
+                        <button type = "submit" name = "submit" class="button button-block">Get Started</button>
+                    </form>
                 </div>
-                
-                <div class="field-wrap">
-                    <label>
-                        Set A Password<span class="req">*</span>
-                    </label>
-                    <input type="password" required autocomplete="off" name = "password">
-                </div>
-                
-                <button type = "submit" name = "submit" class="button button-block">Get Started</button>
-            </form>
-            </div>
             </div>
     </div>
     <script>

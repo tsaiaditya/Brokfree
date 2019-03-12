@@ -27,12 +27,12 @@ session_start();
                     <li><a href="#aboutUs">About Us</a></li>
                     <?php 
                     if(isset($_SESSION['user'])){?>
-                    <li><a href="view-profile.php"><span class='fas fa-user-circle' style = 'font-size:18px;'></span><?php echo " ".$_SESSION['user']?></a></li>
-                    <li><a href="logout.php">Logout</a></li>
+                    <li><a href="../php/view-profile.php"><span class='fas fa-user-circle' style = 'font-size:18px;'></span><?php echo " ".$_SESSION['user']?></a></li>
+                    <li><a href="../php/logout.php">Logout</a></li>
                     <?php }
                     else {?>
-                    <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="../html/signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="../php/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     <?php }?>
                 </ul>
             </div>

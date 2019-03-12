@@ -11,7 +11,7 @@ $date = date("d/m/Y");
 $con = new mysqli('localhost','root','Aditya@1999','brokfree');
 $sql = "select * from login where uname = '$uname'";
 $result = $con->query($sql);
-if($result->num_rows == 0)
+if($result->num_rows != 0)
 {
     ob_start();
     $text = "User already exists!";
