@@ -8,7 +8,7 @@ $mob = $_POST['mob'];
 $password = $_POST['password'];
 $uname = $_POST['uname'];
 $date = date("d/m/Y");
-$con = new mysqli('localhost','root','Aditya@1999','brokfree');
+$con = new mysqli('localhost','root','','brokfree'); //The blank part is where mysql server's password comes.
 $sql = "select * from login where uname = '$uname'";
 $result = $con->query($sql);
 if($result->num_rows != 0)
