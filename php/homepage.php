@@ -82,7 +82,7 @@ session_start();
             if(isset($_SESSION['user']))
             {?>
         <div class="post-ads-button">
-            <button type="submit" class="btn btn-danger" style="font-size: 24px; box-shadow: 0 4px 10px 4px rgba(8, 25, 37, 0.3);"><a href="../html/posting-ads.html" style="text-decoration:none; color:white;">Post Ads Now</a></button>
+            <button type="submit" class="btn btn-danger" style="font-size: 24px; box-shadow: 0 4px 10px 4px rgba(8, 25, 37, 0.3);"><a href="../php/posting-ads.php" style="text-decoration:none; color:white;">Post Ads Now</a></button>
         </div>
         <?php
             }

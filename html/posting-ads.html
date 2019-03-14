@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/posting-ads.css" type="text/css">
 </head>
 
 <body onload="document.body.classList.add('loaded')">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="../php/homepage.php">BrokFree</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#aboutUs">About Us</a></li>
+                    <?php 
+                        if(isset($_SESSION['user'])){?>
+                    <li><a href="../php/view-profile.php"><span class='fas fa-user-circle'
+                                style='font-size:18px;'></span><?php echo " ".$_SESSION['user']?></a></li>
+                    <li><a href="../php/logout.php">Logout</a></li>
+                    <?php }
+                        else {?>
+                    <li><a href="../html/signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="../php/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <?php }?>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <form id="regForm" action="">
         <h1>Posting Ad :</h1>
         <!-- One "tab" for each step in the form: -->
@@ -24,27 +53,33 @@
                 <input class="normal" placeholder="Rent per Month ..." oninput="this.className = ''" name="rentpm">
             </p>
             <p>
-                <input class="normal" placeholder="Dimension of land... (in sqft.)" oninput="this.className = ''" name="sqft">
+                <input class="normal" placeholder="Dimension of land... (in sqft.)" oninput="this.className = ''"
+                    name="sqft">
             </p>
             <p>
-                <input class="normal" placeholder="Deposit Amount(Initial)..." oninput="this.className = ''" name="deposit">
+                <input class="normal" placeholder="Deposit Amount(Initial)..." oninput="this.className = ''"
+                    name="deposit">
             </p>
             <p>
-                <input class="normal" placeholder="Description of the House..." oninput="this.className = ''" name="description">
+                <input class="normal" placeholder="Description of the House..." oninput="this.className = ''"
+                    name="description">
             </p>
             <p>
-                <button onclick="getlocation()" type="button">Click here to find your current location's Latitude and Longitude</button>
+                <button onclick="getlocation()" type="button">Click here to find your current location's Latitude and
+                    Longitude</button>
             </p>
             <p>
                 <input id="lat" class="normal" placeholder="Latitude..." oninput="this.className = ''" name="latitude">
             </p>
             <p>
-                <input id="lon" class="normal" placeholder="Longitude..." oninput="this.className = ''" name="longitude">
+                <input id="lon" class="normal" placeholder="Longitude..." oninput="this.className = ''"
+                    name="longitude">
             </p>
         </div>
         <div class="tab">Phase 2:
             <p>
-                <input class="normal" placeholder="Number of Bedrooms in the house..." oninput="this.className = ''" name="no_of_bedrooms">
+                <input class="normal" placeholder="Number of Bedrooms in the house..." oninput="this.className = ''"
+                    name="no_of_bedrooms">
             </p>
             <p class="radio">Property Type ?<br><br>
                 <input class="radio-type" type="radio" name="prop_type" value="Apartment" required>Apartment
@@ -66,7 +101,8 @@
                 <input class="radio-type" type="radio" name="parking_type2" value="car">Car only
             </p>
             <p>
-                <input class="normal" placeholder="Age of the Building..." oninput="this.className = ''" name="building_age">
+                <input class="normal" placeholder="Age of the Building..." oninput="this.className = ''"
+                    name="building_age">
             </p>
             <p class="radio">Furnishing ?<br><br>
                 <input class="radio-type" type="radio" name="furnish_type" value="semi" required>Semi-Furnished
@@ -89,7 +125,8 @@
                 <input class="radio-type" type="radio" name="security1" value="unsecured">No
             </p>
             <p>
-                <input class="normal" placeholder="Number of bathrooms..." oninput="this.className = ''" name="no_of_bathrooms">
+                <input class="normal" placeholder="Number of bathrooms..." oninput="this.className = ''"
+                    name="no_of_bathrooms">
             </p>
             <p class="radio">Non-Veg allowed in house ?<br><br>
                 <input class="radio-type" type="radio" name="non_veg_allowance" value="allowed" required>Yes
@@ -192,14 +229,14 @@
             // This function will display the specified tab of the form...
             var x = document.getElementsByClassName("tab");
             x[n].style.display = "block";
-            var y=x[n].getElementsByClassName("normal");
-            var len= x[n].getElementsByClassName("normal").length;
+            var y = x[n].getElementsByClassName("normal");
+            var len = x[n].getElementsByClassName("normal").length;
             var i;
-            for(i=0;i<len;i++){
-                y[i].style.padding="10px";
+            for (i = 0; i < len; i++) {
+                y[i].style.padding = "10px";
                 y[i].style.width = "100%";
                 y[i].style.fontSize = "17px";
-                y[i].style.fontFamily = "Raleway"; 
+                y[i].style.fontFamily = "Raleway";
                 y[i].style.border = "1px solid #aaaaaa";
             }
             //... and fix the Previous/Next buttons:
@@ -241,7 +278,7 @@
             var x, y, i, valid = true;
             x = document.getElementsByClassName("tab");
             y = x[currentTab].getElementsByTagName("input");
-            
+
             // A loop that checks every input field in the current tab:
             for (i = 0; i < y.length; i++) {
                 // If a field is empty...
@@ -260,12 +297,12 @@
             return valid; // return the valid status
         }
 
-        function radioinputcheck(){
+        function radioinputcheck() {
             //radio input checker for phase 2
             var x;
             x = document.getElementsByClassName("tab");
             var z = x[currentTab].getElementsByClassName("radio-type");
-            var valid=true;
+            var valid = true;
             if (z.length == 25) {
                 if (!((z.prop_type.checked || z.prop_type1) && (z.water_supply.checked || z.water_supply1.checked || z.water_supply2.checked) && (z.tenant_type.checked || z.tenant_type1.checked || z.tenant_type2 || z.tenant_type3.checked) && (z.direction.checked || z.direction1.checked || z.direction2.checked || z.direction3) && (z.furnish_type.checked || z.furnish_type1.checked || z.furnish_type2.checked) && (z.parking_type.checked || z.parking_type1.checked || z.parking_type2.checked) && (z.possession_type.checked || z.possession_type1.checked) && (z.non_veg_allowance.checked || z.non_veg_allowance1.checked))) {
                     valid = false;
@@ -291,20 +328,20 @@
             x[n].className += " active";
         }
 
-        var x=document.getElementById("lat");
-        var y=document.getElementById("lon");
+        var x = document.getElementById("lat");
+        var y = document.getElementById("lon");
         function getlocation() {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
         function showPosition(position) {
-                x.value = position.coords.latitude;
-                y.value = position.coords.longitude;
-            }
+            x.value = position.coords.latitude;
+            y.value = position.coords.longitude;
+        }
 
         //var a = document.getElementsByClassName("tab");
         //var b = a[1].getElementsByClassName('radio-type');
         //b.required=true;
-        
+
     </script>
 </body>
 
