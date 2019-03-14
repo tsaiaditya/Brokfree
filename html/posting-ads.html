@@ -3,11 +3,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="posting-ads.css" type="text/css">
+    <link rel="stylesheet" href="../css/posting-ads.css" type="text/css">
 </head>
 
 <body onload="document.body.classList.add('loaded')">
-    <form id="regForm" action="">
+    <form id="regForm" action="../php/postads.php">
         <h1>Posting Ad :</h1>
         <!-- One "tab" for each step in the form: -->
         <div class="tab">Phase 1:
@@ -48,30 +48,30 @@
             </p>
             <p class="radio">Property Type ?<br><br>
                 <input class="radio-type" type="radio" name="prop_type" value="Apartment" required>Apartment
-                <input class="radio-type" type="radio" name="prop_type1" value="Individual House">Individual House
+                <input class="radio-type" type="radio" name="prop_type" value="Individual House">Individual House
             </p>
             <p class="radio">Preferred Tenants ?<br><br>
                 <input class="radio-type" type="radio" name="tenant_type" value="Family" required>Family
-                <input class="radio-type" type="radio" name="tenant_type1" value="Bachelors">Bachelors
-                <input class="radio-type" type="radio" name="tenant_type2" value="Company">Company
-                <input class="radio-type" type="radio" name="tenant_type3" value="Doesnt_matter">Doesn't matter
+                <input class="radio-type" type="radio" name="tenant_type" value="Bachelors">Bachelors
+                <input class="radio-type" type="radio" name="tenant_type" value="Company">Company
+                <input class="radio-type" type="radio" name="tenant_type" value="Doesnt_matter">Doesn't matter
             </p>
             <p class="radio">Possession Type ?<br><br>
                 <input class="radio-type" type="radio" name="possession_type" value="Immediately" required>Immediately
-                <input class="radio-type" type="radio" name="possession_type1" value="Few Weeks">Few Weeks
+                <input class="radio-type" type="radio" name="possession_type" value="Few Weeks">Few Weeks
             </p>
             <p class="radio">Parking Type ?<br><br>
                 <input class="radio-type" type="radio" name="parking_type" value="bike" required>Bike only
-                <input class="radio-type" type="radio" name="parking_type1" value="bikeandcar">Bike and Car
-                <input class="radio-type" type="radio" name="parking_type2" value="car">Car only
+                <input class="radio-type" type="radio" name="parking_type" value="bikeandcar">Bike and Car
+                <input class="radio-type" type="radio" name="parking_type" value="car">Car only
             </p>
             <p>
                 <input class="normal" placeholder="Age of the Building..." oninput="this.className = ''" name="building_age">
             </p>
             <p class="radio">Furnishing ?<br><br>
                 <input class="radio-type" type="radio" name="furnish_type" value="semi" required>Semi-Furnished
-                <input class="radio-type" type="radio" name="furnish_type1" value="fully">Fully-Furnished
-                <input class="radio-type" type="radio" name="furnish_type2" value="not_furnished">Unfurnished
+                <input class="radio-type" type="radio" name="furnish_type" value="fully">Fully-Furnished
+                <input class="radio-type" type="radio" name="furnish_type" value="not_furnished">Unfurnished
             </p>
             <p class="radio">Direction in which house is facing ?<br><br>
                 <input class="radio-type" type="radio" name="direction" value="north" required>North
@@ -81,99 +81,99 @@
             </p>
             <p class="radio">Water Supply getting from ?<br><br>
                 <input class="radio-type" type="radio" name="water_supply" value="corporation" required>Corporation
-                <input class="radio-type" type="radio" name="water_supply1" value="borewell">Borewell
-                <input class="radio-type" type="radio" name="water_supply2" value="corporation&borewell">Both
+                <input class="radio-type" type="radio" name="water_supply" value="borewell">Borewell
+                <input class="radio-type" type="radio" name="water_supply" value="corporation&borewell">Both
             </p>
             <p class="radio">Security Guards ?<br><br>
                 <input class="radio-type" type="radio" name="security" value="secured" required>Yes
-                <input class="radio-type" type="radio" name="security1" value="unsecured">No
+                <input class="radio-type" type="radio" name="security" value="unsecured">No
             </p>
             <p>
                 <input class="normal" placeholder="Number of bathrooms..." oninput="this.className = ''" name="no_of_bathrooms">
             </p>
             <p class="radio">Non-Veg allowed in house ?<br><br>
                 <input class="radio-type" type="radio" name="non_veg_allowance" value="allowed" required>Yes
-                <input class="radio-type" type="radio" name="non_veg_allowance1" value="not_allowed">No
+                <input class="radio-type" type="radio" name="non_veg_allowance" value="not_allowed">No
             </p>
         </div>
         <div class="tab">Phase 3:
             <p class="radio">Lift facility ?<br><br>
                 <input class="radio-type" type="radio" name="lift_facility" value="there">Yes
-                <input class="radio-type" type="radio" name="lift_facility1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="lift_facility" value="not_there" checked>No
             </p>
             <p class="radio">Air Conditioner facility ?<br><br>
                 <input class="radio-type" type="radio" name="airconditioner" value="there">Yes
-                <input class="radio-type" type="radio" name="airconditioner1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="airconditioner" value="not_there" checked>No
             </p>
             <p class="radio">Swimming Pool ?<br><br>
                 <input class="radio-type" type="radio" name="swimming_pool" value="there">Yes
-                <input class="radio-type" type="radio" name="swimming_pool1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="swimming_pool" value="not_there" checked>No
             </p>
             <p class="radio">Servant room in house ?<br><br>
                 <input class="radio-type" type="radio" name="servant_room" value="there">Yes
-                <input class="radio-type" type="radio" name="servant_room1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="servant_room" value="not_there" checked>No
             </p>
             <p class="radio">Gas pipeline for house ?<br><br>
                 <input class="radio-type" type="radio" name="gas_pipeline" value="allowed">Yes
-                <input class="radio-type" type="radio" name="gas_pipeline1" value="not_allowed" checked>No
+                <input class="radio-type" type="radio" name="gas_pipeline" value="not_allowed" checked>No
             </p>
             <p class="radio">Sewage Treatment plant for house ?<br><br>
                 <input class="radio-type" type="radio" name="sewage_treatment" value="there">Yes
-                <input class="radio-type" type="radio" name="sewage_treatment1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="sewage_treatment" value="not_there" checked>No
             </p>
             <p class="radio">Visitor Parking facility ?<br><br>
                 <input class="radio-type" type="radio" name="visitor_parking" value="there">Yes
-                <input class="radio-type" type="radio" name="visitor_parking1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="visitor_parking" value="not_there" checked>No
             </p>
             <p class="radio">Gym facility ?<br><br>
                 <input class="radio-type" type="radio" name="gym_facility" value="there">Yes
-                <input class="radio-type" type="radio" name="gym_facility1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="gym_facility" value="not_there" checked>No
             </p>
             <p class="radio">Club House ?<br><br>
                 <input class="radio-type" type="radio" name="club_house" value="there">Yes
-                <input class="radio-type" type="radio" name="club_house1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="club_house" value="not_there" checked>No
             </p>
             <p class="radio">Children's Play Area there ?<br><br>
                 <input class="radio-type" type="radio" name="child_play_area" value="there">Yes
-                <input class="radio-type" type="radio" name="child_play_area1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="child_play_area" value="not_there" checked>No
             </p>
             <p class="radio">Park nearby ?<br><br>
                 <input class="radio-type" type="radio" name="park" value="there">Yes
-                <input class="radio-type" type="radio" name="park1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="park" value="not_there" checked>No
             </p>
             <p class="radio">House Keeping Services available?<br><br>
                 <input class="radio-type" type="radio" name="house_keeping" value="there">Yes
-                <input class="radio-type" type="radio" name="house_keeping1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="house_keeping" value="not_there" checked>No
             </p>
             <p class="radio">Internet Services provided ?<br><br>
                 <input class="radio-type" type="radio" name="internet" value="there">Yes
-                <input class="radio-type" type="radio" name="internet1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="internet" value="not_there" checked>No
             </p>
             <p class="radio">Intercom provided ?<br><br>
                 <input class="radio-type" type="radio" name="intercom" value="there">Yes
-                <input class="radio-type" type="radio" name="intercom1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="intercom" value="not_there" checked>No
             </p>
             <p class="radio">Fire Safety ensured ?<br><br>
                 <input class="radio-type" type="radio" name="fire_safety" value="there">Yes
-                <input class="radio-type" type="radio" name="fire_safety1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="fire_safety" value="not_there" checked>No
             </p>
             <p class="radio">Shopping Center Nearby ?<br><br>
                 <input class="radio-type" type="radio" name="shopping" value="there">Yes
-                <input class="radio-type" type="radio" name="shopping1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="shopping" value="not_there" checked>No
             </p>
             <p class="radio">Rainwater Harvesting Facility ?<br><br>
                 <input class="radio-type" type="radio" name="rainwater_harvesting" value="there">Yes
-                <input class="radio-type" type="radio" name="rainwater_harvesting1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="rainwater_harvesting" value="not_there" checked>No
             </p>
             <p class="radio">Power Backup ensured ?<br><br>
                 <input class="radio-type" type="radio" name="power_backup" value="there">Yes
-                <input class="radio-type" type="radio" name="power_backup1" value="not_there" checked>No
+                <input class="radio-type" type="radio" name="power_backup" value="not_there" checked>No
             </p>
         </div>
         <div style="overflow:auto;">
             <div style="float:right;">
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(2)">Next</button>
             </div>
         </div>
         <!-- Circles which indicates the steps of the form: -->
