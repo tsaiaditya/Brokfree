@@ -78,9 +78,20 @@ session_start();
                 <h3 style="display:inline; color:rgb(255, 255, 255); ">Are you a property owner?</h3>
             </div>
         </center>
+        <?php 
+            if(isset($_SESSION['user']))
+            {?>
         <div class="post-ads-button">
-            <button type="submit" class="btn btn-danger" style="font-size: 24px; box-shadow: 0 4px 10px 4px rgba(8, 25, 37, 0.3);"><a href="posting-ads.html" style="text-decoration:none; color:white;">Post Ads Now</a></button>
+            <button type="submit" class="btn btn-danger" style="font-size: 24px; box-shadow: 0 4px 10px 4px rgba(8, 25, 37, 0.3);"><a href="../html/posting-ads.html" style="text-decoration:none; color:white;">Post Ads Now</a></button>
         </div>
+        <?php
+            }
+            else {
+                ?>
+        <div class="post-ads-button">
+            <button type="submit" class="btn btn-danger" style="font-size: 24px; box-shadow: 0 4px 10px 4px rgba(8, 25, 37, 0.3);"><a href="login.php" style="text-decoration:none; color:white;">Post Ads Now</a></button>
+        </div>        
+            <?php } ?>
         <div class="use-brokfree">
             <div style="padding:5px">
                 <h3 id="why-use-brok"><span style="border-bottom: 1px solid black; font-weight: bold;">Why use Brokfree</span></h3>

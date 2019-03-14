@@ -4,7 +4,7 @@ $user=$pass="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $user = test_input($_POST['uname']);
 $pass = test_input($_POST['password']);
-$con = new mysqli('localhost','root','','brokfree'); //The blank space is the password for your mysql server.
+$con = new mysqli('localhost','root','Aditya@1999','brokfree'); //The Aditya@1999 is the password for your mysql server.
 $sql = "select * from login where uname = '$user' and password = '$pass'";
 $result = $con->query($sql);
 $num = $result->num_rows;
@@ -65,6 +65,7 @@ function test_input($data) {
                     </div>
                     
                     <button class="button button-block" type = 'submit' name = 'submit'>Log In</button>
+                    <button class="button button-block" type = 'button' style = "padding : 10px; margin-top : 30px;"><a href = "../html/signup.html" style = "color: white; padding : 5px; text-decoration : none;">Don't have an account? Click here...</a></button>
                 </form>
                 <h4 style = "color:white;">
                 <?php 
