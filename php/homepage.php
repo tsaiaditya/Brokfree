@@ -45,7 +45,7 @@ session_start();
         </div>
         <center>
             <div class="search">
-                <form class="navbar-form" action="search-homes.html" method="POST">
+                <form class="navbar-form" action="../php/search-homes.php" method="POST">
                     <div class="search-input-group">
                         <input class="search-content-list" type="text" placeholder="Search for a locality" list="cities" name="city">
                         <datalist id="cities">

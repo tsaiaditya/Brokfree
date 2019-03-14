@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="search-homes.css" types="text/css">
+    <link rel="stylesheet" href="../css/search-homes.css" types="text/css">
 </head>
 <script>
     $(document).ready(function () {
@@ -27,6 +27,7 @@
         $('#range').text(" Rs." + minimum + " - Rs." + maximum);
     }
 </script>
+
 <body style="background-color:rgb(238, 114, 13)" onload="document.body.classList.add('loaded')">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -52,7 +53,7 @@
             <div class="col-md-4">
                 <form action="#" method="POST">
                     <div class="main-filter">
-                        <span class="location">Location Selected : <?php ?></span>
+                        <span class="location">Location Selected : <?php echo $text;?></span>
                         <span class="filter-panel-header">Apartment Type</span>
                         <label class="proptype">1 RK
                             <input type="radio" name="radio">
@@ -125,116 +126,117 @@
             <div class="col-md-8">
                 <div class="page-cards">
                     <a href="view-home.html" style="text-decoration: none;">
-                    <div class="home-card">
-                        <div class="row" style="background-color: lightgrey; padding:5px;">
-                            <p class="house-name">Name of the House</p>
+                        <div class="home-card">
+                            <div class="row" style="background-color: lightgrey; padding:5px;">
+                                <p class="house-name">Name of the House</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Builtup</p>
+                                </div>
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Deposit</p>
+                                </div>
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Rent</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-couch" style="font-size:30px"></i>
+                                    <p>FURNISHING</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>AGE OF THE BUILDING</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>PREFERRED TENANTS</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>AVAILABILITY</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4" id="house-detail">
-                                <p>Builtup</p>
-                            </div>
-                            <div class="col-md-4" id="house-detail">
-                                <p>Deposit</p>
-                            </div>
-                            <div class="col-md-4" id="house-detail">
-                                <p>Rent</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-couch" style="font-size:30px"></i>
-                                <p>FURNISHING</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                <p>AGE OF THE BUILDING</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                <p>PREFERRED TENANTS</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                <p>AVAILABILITY</p>
-                            </div>
-                        </div>
-                    </div>
                     </a>
                     <a href="view-home.html">
-                    <div class="home-card">
-                        <div class="row" style="background-color: lightgrey; padding:5px;">
-                            <p class="house-name">Name of the House</p>
+                        <div class="home-card">
+                            <div class="row" style="background-color: lightgrey; padding:5px;">
+                                <p class="house-name">Name of the House</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Builtup</p>
+                                </div>
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Deposit</p>
+                                </div>
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Rent</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-couch" style="font-size:30px"></i>
+                                    <p>FURNISHING</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>AGE OF THE BUILDING</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>PREFERRED TENANTS</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>AVAILABILITY</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4" id="house-detail">
-                                <p>Builtup</p>
-                            </div>
-                            <div class="col-md-4" id="house-detail">
-                                <p>Deposit</p>
-                            </div>
-                            <div class="col-md-4" id="house-detail">
-                                <p>Rent</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-couch" style="font-size:30px"></i>
-                                <p>FURNISHING</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                <p>AGE OF THE BUILDING</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                <p>PREFERRED TENANTS</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                <p>AVAILABILITY</p>
-                            </div>
-                        </div>
-                    </div>
                     </a>
                     <a href="view-home.html">
-                    <div class="home-card">
-                        <div class="row" style="background-color: lightgrey; padding:5px;">
-                            <p class="house-name">Name of the House</p>
+                        <div class="home-card">
+                            <div class="row" style="background-color: lightgrey; padding:5px;">
+                                <p class="house-name">Name of the House</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Builtup</p>
+                                </div>
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Deposit</p>
+                                </div>
+                                <div class="col-md-4" id="house-detail">
+                                    <p>Rent</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-couch" style="font-size:30px"></i>
+                                    <p>FURNISHING</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>AGE OF THE BUILDING</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>PREFERRED TENANTS</p>
+                                </div>
+                                <div class="col-md-6" style="color:black">
+                                    <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                    <p>AVAILABILITY</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4" id="house-detail">
-                                <p>Builtup</p>
-                            </div>
-                            <div class="col-md-4" id="house-detail">
-                                <p>Deposit</p>
-                            </div>
-                            <div class="col-md-4" id="house-detail">
-                                <p>Rent</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-couch" style="font-size:30px"></i>
-                                <p>FURNISHING</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                <p>AGE OF THE BUILDING</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                <p>PREFERRED TENANTS</p>
-                            </div>
-                            <div class="col-md-6" style="color:black">
-                                <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                <p>AVAILABILITY</p>
-                            </div>
-                        </div>
-                    </div>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
