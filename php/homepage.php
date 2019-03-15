@@ -1,5 +1,16 @@
 <?php
 session_start();
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+    $_SESSION['city']=test_input($_POST['city']);
+    header('location: ../php/search-homes.php');
+}
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" style="overflow-y:scroll; overflow-x:hidden;">
@@ -45,7 +56,7 @@ session_start();
         </div>
         <center>
             <div class="search">
-                <form class="navbar-form" action="../php/search-homes.php" method="POST">
+                <form class="navbar-form" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
                     <div class="search-input-group">
                         <input class="search-content-list" type="text" placeholder="Search for a locality" list="cities" name="city">
                         <datalist id="cities">
@@ -82,7 +93,7 @@ session_start();
             if(isset($_SESSION['user']))
             {?>
         <div class="post-ads-button">
-            <button type="submit" class="btn btn-danger" style="font-size: 24px; box-shadow: 0 4px 10px 4px rgba(8, 25, 37, 0.3);"><a href="../php/posting-ads.php" style="text-decoration:none; color:white;">Post Ads Now</a></button>
+            <button type="submit" class="btn btn-danger" style="font-size: 24px; box-shadow: 0 4px 10px 4px rgba(8, 25, 37, 0.3);"><a href="posting-ads.php" style="text-decoration:none; color:white;">Post Ads Now</a></button>
         </div>
         <?php
             }
@@ -164,4 +175,3 @@ session_start();
 </body>
 
 </html>
-')?>

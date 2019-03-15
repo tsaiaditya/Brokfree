@@ -1,3 +1,4 @@
+<!--Just a template, if you want, u can use-->
 <!DOCTYPE html>
 <html lang="en" style="overflow-y:scroll">
 
@@ -13,8 +14,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/search-homes.css" types="text/css">
 </head>
+<style>
+    #slider-range {
+	width: 80%;
+	margin: 6px 0px 6px 0px;
+}
+
+</style>
 <script>
-    $(document).ready(function () {
+    /*$(document).ready(function () {
         $('#slider').slider({
             max: 10000, range: true, values: [0, 10000], change: function (event, ui) {
                 getDetails(ui.values[0], ui.values[1]);
@@ -25,7 +33,23 @@
     });
     function getDetails(minimum, maximum) {
         $('#range').text(" Rs." + minimum + " - Rs." + maximum);
-    }
+    });
+    }*/
+    $(function () {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 400000,
+                values: [ <?php echo $min; ?>, <?php echo $max; ?> ],
+            slide: function(event, ui) {
+                $("#amount").html("$" + ui.values[0] + " - $" + ui.values[1]);
+                $("#min").val(ui.values[0]);
+                $("#max").val(ui.values[1]);
+            }
+        });
+        $("#amount").html("$" + $("#slider-range").slider("values", 0) +
+            " - $" + $("#slider-range").slider("values", 1));
+  });
 </script>
 
 <body style="background-color:rgb(238, 114, 13)" onload="document.body.classList.add('loaded')">
@@ -37,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="homepage.php">BrokFree</a>
+                <a class="navbar-brand" href="../php/homepage.php">BrokFree</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -58,189 +82,76 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <form action="#" method="POST">
+                <form action="../php/search-homes.php" method="POST">
                     <div class="main-filter">
-                        <span class="location">Location Selected : <?php echo $text;?></span>
-                        <span class="filter-panel-header">Apartment Type</span>
-                        <label class="proptype">1 RK
-                            <input type="radio" name="radio">
-                            <span class="checkmark"></span>
-                        </label>
+                        <span class="location">Location Selected : <?php echo $_SESSION['city'];?></span>
+                        <span class="filter-panel-header">Apartment Type : </span>
                         <label class="proptype">1 BHK
-                            <input type="radio" name="radio">
+                            <input type="radio" name="bedroom" value = "1 Bedroom">
                             <span class="checkmark"></span>
                         </label>
                         <label class="proptype">2 BHK
-                            <input type="radio" name="radio">
+                            <input type="radio" name="bedroom" value = "2 Bedroom">
                             <span class="checkmark"></span>
                         </label>
                         <label class="proptype">3 BHK
-                            <input type="radio" name="radio">
+                            <input type="radio" name="bedroom" value = "3 Bedroom">
                             <span class="checkmark"></span>
                         </label>
                         <label class="proptype">4 BHK
-                            <input type="radio" name="radio">
+                            <input type="radio" name="bedroom" value = "4 Bedroom">
                             <span class="checkmark"></span>
                         </label>
-                        <span class="filter-panel-header">Price range</span>
-                        <span id="range"></span>
-                        <div id="slider"></div>
-                        <span class="filter-panel-header">Availability</span>
-                        <label class="avail">Immediate
-                            <input type="radio" name="radio1">
+                        <div>
+                            <span class="filter-panel-header">Price range : </span>
+                            <input type="" id="min" name="min_price" value="<?php echo $min; ?>">
+                            <div id="slider-range"></div>
+                            <input type="" id="max" name="max_price" value="<?php echo $max; ?>">
+                        </div>
+                        <span class="filter-panel-header">Parking : </span>
+                        <label class="avail">Car
+                            <input type="radio" name="parking" value = "Car">
                             <span class="checkmark2"></span>
                         </label>
-                        <label class="avail">Within 15 Days
-                            <input type="radio" name="radio1">
+                        <label class="avail">Bike
+                            <input type="radio" name="parking" value = "Bike">
                             <span class="checkmark2"></span>
                         </label>
-                        <label class="avail">Within 30 Days
-                            <input type="radio" name="radio1">
+                        <label class="avail">Bike and Car
+                            <input type="radio" name="parking" value = "Bike and Car">
                             <span class="checkmark2"></span>
                         </label>
-                        <label class="avail">After 30 Days
-                            <input type="radio" name="radio1">
-                            <span class="checkmark2"></span>
-                        </label>
-                        <span class="filter-panel-header">Preferred Tenants</span>
+                        <span class="filter-panel-header">Preferred Tenants : </span>
                         <label class="pref-tenant">Family
-                            <input type="radio" name="radio2">
+                            <input type="radio" name="family" value = "Family">
                             <span class="checkmark1"></span>
                         </label>
                         <label class="pref-tenant">Bachelor
-                            <input type="radio" name="radio2">
+                            <input type="radio" name="family" value = "Bachelor's">
                             <span class="checkmark1"></span>
                         </label>
-                        <span class="filter-panel-header">Furnishing Type</span>
+                        <label class="pref-tenant">Doesn't Matter
+                            <input type="radio" name="family" value="Doesn't Matter">
+                            <span class="checkmark1"></span>
+                        </label>
+                        <span class="filter-panel-header">Furnishing Type : </span>
                         <label class="furn">Full
-                            <input type="radio" name="radio3">
+                            <input type="radio" name="furnish" value = "Full">
                             <span class="checkmark3"></span>
                         </label>
                         <label class="furn">Semi
-                            <input type="radio" name="radio3">
+                            <input type="radio" name="furnish" value = "Semi">
                             <span class="checkmark3"></span>
                         </label>
-                        <label class="furn">No
-                            <input type="radio" name="radio3">
+                        <label class="furn">Unfurnished
+                            <input type="radio" name="furnish" value = "Unfurnished">
                             <span class="checkmark3"></span>
                         </label>
                         <span class="filter-panel-header">
-                            <button type="submit" style="color:black; margin-top:15px;">Confirmed?</button>
+                            <button type="submit" class="btn btn-warning" name = "submit">Confirmed?</button>
                         </span>
                     </div>
                 </form>
-            </div>
-            <div class="col-md-8">
-                <div class="page-cards">
-                    <a href="view-home.html" style="text-decoration: none;">
-                        <div class="home-card">
-                            <div class="row" style="background-color: lightgrey; padding:5px;">
-                                <p class="house-name">Name of the House</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Builtup</p>
-                                </div>
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Deposit</p>
-                                </div>
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Rent</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-couch" style="font-size:30px"></i>
-                                    <p>FURNISHING</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>AGE OF THE BUILDING</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>PREFERRED TENANTS</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>AVAILABILITY</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="view-home.html">
-                        <div class="home-card">
-                            <div class="row" style="background-color: lightgrey; padding:5px;">
-                                <p class="house-name">Name of the House</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Builtup</p>
-                                </div>
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Deposit</p>
-                                </div>
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Rent</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-couch" style="font-size:30px"></i>
-                                    <p>FURNISHING</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>AGE OF THE BUILDING</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>PREFERRED TENANTS</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>AVAILABILITY</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="view-home.html">
-                        <div class="home-card">
-                            <div class="row" style="background-color: lightgrey; padding:5px;">
-                                <p class="house-name">Name of the House</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Builtup</p>
-                                </div>
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Deposit</p>
-                                </div>
-                                <div class="col-md-4" id="house-detail">
-                                    <p>Rent</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-couch" style="font-size:30px"></i>
-                                    <p>FURNISHING</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>AGE OF THE BUILDING</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>PREFERRED TENANTS</p>
-                                </div>
-                                <div class="col-md-6" style="color:black">
-                                    <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
-                                    <p>AVAILABILITY</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
