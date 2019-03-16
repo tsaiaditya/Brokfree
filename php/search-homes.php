@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $furnish = $_POST['furnish'];    
         $_SESSION['search_homes'] = TRUE;
         $con = new mysqli('localhost','root','Aditya@1999','brokfree');
-        $sql = "select * from house where loc = '$loc' and bedroom = '$bedroom' and preferred_tenants like '$family' and parking = '$parking' and furnishing = '$furnish'"; 
+        $sql = "select * from house where loc = '$loc' and bedroom like '$bedroom' and preferred_tenants like '$family' and parking like '$parking' and furnishing like '$furnish'"; 
         $result = $con->query($sql);
         if(!$result)
         {

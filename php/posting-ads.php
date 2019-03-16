@@ -42,14 +42,14 @@ session_start();
         $power_backup = $_POST['power_backup'];
         $balcony = $_POST['no_of_balconies'];
         $con = new mysqli('localhost','root','Aditya@1999','brokfree');
-        $sql = "INSERT INTO house VALUES('$city','$latitude','$longitude','$hname','$addr','$description','$furnish_type','$direction','$water_supply','$no_of_bathrooms','$security','$non_veg_allowance','$lift_facility','$airconditioner','$swimming_pool','$servant_room','$gas_pipeline','$sewage_treatment','$visitor_parking','$gym_facility','$club_house','$child_play_area','$park','$house_keeping','$internet','$intercom','$fire_safety','$shopping','$rainwater_harvesting','$power_backup','$rentpm','$sqft','$deposit','$no_of_bedrooms','$prop_type','$tenant_type','$possession_type','$parking_type','$building_age','$balcony')";
-        if ($conn->query($sql) === TRUE) {
+        $sql = "INSERT INTO house VALUES('$city','$latitude','$longitude','$hname','$addr','$description','$furnish_type','$direction','$water_supply','$no_of_bathrooms','$security','$non_veg_allowance','$lift_facility','$airconditioner','$swimming_pool','$servant_room','$gas_pipeline','$sewage_treatment','$visitor_parking','$gym_facility','$club_house','$child_play_area','$park','$house_keeping','$internet','$intercom','$fire_safety','$shopping','$rainwater_harvesting','$power_backup','$rentpm/M','$sqft','$deposit','$no_of_bedrooms Bedroom','$prop_type','$tenant_type','$possession_type','$parking_type','$building_age years','$balcony')";
+        if ($con->query($sql) === TRUE) {
             header('location: ../html/registered.html');
         } else {
             //echo "Data not sucessfully inserted";
             header('location: ../html/signup-login.html');
         }
-        $conn->close();
+        $con->close();
     }
 ?>
 <!DOCTYPE html>
@@ -102,7 +102,7 @@ session_start();
                 <input class="normal" placeholder="Full Address..." oninput="this.className = ''" name="addr">
             </p>
             <p>
-                <input class="normal" placeholder="Rent per Month ..." oninput="this.className = ''" name="rentpm">
+                <input class="normal" placeholder="Rent per Month..." oninput="this.className = ''" name="rentpm">
             </p>
             <p>
                 <input type = "number" class="normal" placeholder="Dimension of land... (in sqft.)" oninput="this.className = ''"
@@ -156,14 +156,14 @@ session_start();
             </p>
             <p class="radio">Furnishing ?<br><br>
                 <input class="radio-type" type="radio" name="furnish_type" value="Semi" required>Semi-Furnished<br>
-                <input class="radio-type" type="radio" name="furnish_type" value="Fully">Fully-Furnished<br>
+                <input class="radio-type" type="radio" name="furnish_type" value="Full">Fully-Furnished<br>
                 <input class="radio-type" type="radio" name="furnish_type" value="Unfurnished">Unfurnished<br>
             </p>
             <p class="radio">Direction in which house is facing ?<br><br>
                 <input class="radio-type" type="radio" name="direction" value="North" required>North<br>
-                <input class="radio-type" type="radio" name="direction1" value="South">South<br>
-                <input class="radio-type" type="radio" name="direction2" value="East">East<br>
-                <input class="radio-type" type="radio" name="direction3" value="West">West<br>
+                <input class="radio-type" type="radio" name="direction" value="South">South<br>
+                <input class="radio-type" type="radio" name="direction" value="East">East<br>
+                <input class="radio-type" type="radio" name="direction" value="West">West<br>
             </p>
             <p class="radio">Water Supply getting from ?<br><br>
                 <input class="radio-type" type="radio" name="water_supply" value="Corporation" required>Corporation<br>
@@ -175,7 +175,7 @@ session_start();
                 <input class="radio-type" type="radio" name="security" value="No">No<br>
             </p>
             <p>
-                <input class="normal" placeholder="Number of bathrooms..." oninput="this.className = ''" name="no_of_bathrooms">
+                <input type = "number" class="normal" placeholder="Number of bathrooms..." oninput="this.className = ''" name="no_of_bathrooms">
             </p>
             <p class="radio">Non-Veg allowed in house ?<br><br>
                 <input class="radio-type" type="radio" name="non_veg_allowance" value="Yes" required>Yes<br>
@@ -184,7 +184,7 @@ session_start();
         </div>
         <div class="tab">Phase 3:
             <p>
-                <input class="normal" placeholder="Number of balconies..." oninput="this.className = ''" name="no_of_balconies">
+                <input type = "number" class="normal" placeholder="Number of balconies..." oninput="this.className = ''" name="no_of_balconies">
             </p>
             <p class="radio">Lift facility ?<br><br>
                 <input class="radio-type" type="radio" name="lift_facility" value="Yes">Yes<br>
@@ -220,7 +220,7 @@ session_start();
             </p>
             <p class="radio">Club House ?<br><br>
                 <input class="radio-type" type="radio" name="club_house" value="Yes">Yes<br>
-                <input class="radio-type" type="radio" name="club_house" value="not_there" checked>No<br>
+                <input class="radio-type" type="radio" name="club_house" value="No" checked>No<br>
             </p>
             <p class="radio">Children's Play Area there ?<br><br>
                 <input class="radio-type" type="radio" name="child_play_area" value="Yes">Yes<br>
