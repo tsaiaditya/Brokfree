@@ -238,7 +238,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <div class="page-cards">
                     <div class="home-card">
                         <div class="row" style="background-color: lightgrey; padding:5px;">
-                            <p class="house-name"><a href="view-home.html" style="text-decoration: none;"><?php echo $hname[$i]; ?></a></p>
+                            <p class="house-name">
+                                <a href="view-home.php" style="text-decoration: none;">
+                                <?php 
+                                echo $hname[$i]; 
+                                $_SESSION['house_name'] = $hname[$i]; ?>
+                                </a>
+                            </p>
                         </div>
                         <div class="row">
                             <div class="col-md-4" id="house-detail">

@@ -44,7 +44,7 @@
     <div class="container">
         <div class="row row-header">
             <div class="col-md-6" style="display:block; border-radius: 4px; box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);">
-                <p class="house-name">Name of the House</p>
+                <p class="house-name"><?= $hname?></p>
             </div>
             <div class="col-md-2">
                 <p class="house-detail">Rent : </p>
@@ -335,6 +335,9 @@
             </div>
         </div>
     </div>
+    <center>
+        <button class = 'btn btn-warning' type="button"><a href = '../php/search-homes.php' style = 'text-decoration : none; color: white;'>Click here to go back to search homes</a></button>
+    </center>
 
     <script>
         var c = function (pos) {
