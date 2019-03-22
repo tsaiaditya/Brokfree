@@ -24,7 +24,7 @@
     else
     {
         ob_start();
-        $text = "Wait for the link to be copied from your browser to this browser!";
+        $text = "Wait for the link to be copied from your browsing tab to this browser!";
         include "../html/email-verification.html";
         $out = ob_get_clean();
         echo $out;
