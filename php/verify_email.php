@@ -17,7 +17,11 @@
         }
         else 
         {
-            echo "Error while authentication";
+            ob_start();
+            $text = "Error while authentication, no account found!";
+            include "../html/email-verification.html";
+            $out = ob_get_clean();
+            echo $out;
         }
         $con->close();
     }
