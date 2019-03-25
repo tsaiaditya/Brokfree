@@ -1,11 +1,10 @@
 <?php
 session_start();
-$user=$pass="";
+$user="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $user = test_input($_POST['uname']);
-$pass = test_input($_POST['password']);
 $con = new mysqli('localhost','root','Aditya@1999','brokfree'); //The Aditya@1999 is the password for your mysql server.
-$sql = "select * from login where uname = '$user' and password = '$pass'";
+$sql = "select * from login where uname = '$user'";
 $result = $con->query($sql);
 $num = $result->num_rows;
 if($num==0)
@@ -17,13 +16,10 @@ else{
     {
         while($row = $result->fetch_assoc())
         {
-            $_SESSION['user']=$row['uname'];
-            $_SESSION['fname']=$row['fname'];
-            $_SESSION['lname']=$row['lname'];
-            $_SESSION['mob']=$row['mob'];
-            $_SESSION['email']=$row['email'];
-            $_SESSION['date']=$row['date'];
-            $_SESSION['password']=$row['password'];
+           if($user = $row['uname'])
+           {
+                header('Location: change.php');
+           }
         }
     }
     header('location:homepage.php');
@@ -57,14 +53,8 @@ function test_input($data) {
                         <input type="text" required autocomplete="off" name = "uname">
                     </div>
                     
-                    <div class="field-wrap">
-                        <label>
-                            Password<span class="req">*</span>
-                        </label>
-                        <input type="password" required autocomplete="off" name = "password">
-                    </div>
                     
-                    <button class="button button-block" type = 'submit' name = 'submit'>Log In</button>
+                    <button class="button button-block" type = 'submit' name = 'submit'>Verify</button>
                     <button class="button button-block" type = 'button' style = "padding : 10px; margin-top : 30px;"><a href = "../html/signup.html" style = "color: white; padding : 5px; text-decoration : none;">Don't have an account? Click here...</a></button>
                 </form>
                 <h4 style = "color:white;">
@@ -72,7 +62,7 @@ function test_input($data) {
                 if($user=="")
                     echo "";
                 else
-                    echo "Invalid password or username, please try again";?></h4>
+                    echo "Invalid username, please try again";?></h4>
             </div>
         </div>
     </div> 

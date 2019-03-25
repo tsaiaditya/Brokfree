@@ -1,4 +1,81 @@
-<!--Just a template, if you want, u can use-->
+<?php
+session_start();
+$min = 0;
+$max = 400000;
+$rows = 0;
+$hname = [];
+$rent = [];
+$builtup = [];
+$deposit = [];
+$furnish_arr = [];
+$age_arr = [];
+$tenant_arr = [];
+$avail_arr = [];
+$rent_arr = [];
+$loc = "";
+$bedroom = "";
+$family = "";
+$parking = "";
+$furnish = "";
+$message = "";
+$sql = "";
+$_SESSION['search_homes'] = TRUE;
+if (! empty($_POST['min_price'])) {
+    $min = $_POST['min_price'];
+}
+if (! empty($_POST['max_price'])) {
+    $max = $_POST['max_price'];
+}
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    if(!empty($_POST['bedroom'])&&!empty($_POST['family'])&&!empty($_POST['parking'])&&!empty($_POST['furnish'])) {
+        $loc = $_SESSION['city'];
+        $bedroom = $_POST['bedroom'];
+        $family = $_POST['family'];
+        $parking = $_POST['parking'];
+        $furnish = $_POST['furnish'];    
+        $_SESSION['search_homes'] = TRUE;
+        $con = new mysqli('localhost','root','Aditya@1999','brokfree');
+        $sql = "select * from house where loc = '$loc' and bedroom like '$bedroom' and preferred_tenants like '$family' and parking like '$parking' and furnishing like '$furnish'"; 
+        $result = $con->query($sql);
+        if(!$result)
+        {
+            trigger_error('invalid query : '.$con->error);
+        }
+        if($result->num_rows == 0) {
+            $message = "No homes found for the specified...";
+            $_SESSION['search_homes'] = FALSE;
+        }
+        elseif($result->num_rows>0)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                $rent = $row['rent'];
+                $temp = explode('/',$rent);
+                if((int)$temp[0]>=$min && (int)$temp[0]<=$max)
+                {   
+                    // echo $row['hname']."<br>";
+                    $actual_rent = (int)$temp[0];
+                    array_push($hname,$row['hname']);
+                    array_push($builtup,$row['builtup']);
+                    array_push($deposit,$row['deposit']);
+                    array_push($rent_arr,$actual_rent);
+                    array_push($age_arr,$row['age']);
+                    array_push($furnish_arr,$row['furnishing']);
+                    array_push($tenant_arr,$row['preferred_tenants']); 
+                    array_push($avail_arr,$row['avail']);  
+                    ++$rows;
+                }
+            }
+        }
+        $con->close();
+        }
+    else
+    {
+        $message = "Please fill all the details in filter...";
+        $_SESSION['search_homes'] = FALSE;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en" style="overflow-y:scroll">
 
@@ -127,11 +204,11 @@
                             <span class="checkmark1"></span>
                         </label>
                         <label class="pref-tenant">Bachelor
-                            <input type="radio" name="family" value = "Bachelor's">
+                            <input type="radio" name="family" value = "Bachelor">
                             <span class="checkmark1"></span>
                         </label>
                         <label class="pref-tenant">Doesn't Matter
-                            <input type="radio" name="family" value="Doesn't Matter">
+                            <input type="radio" name="family" value="Doesn">
                             <span class="checkmark1"></span>
                         </label>
                         <span class="filter-panel-header">Furnishing Type : </span>
@@ -152,6 +229,63 @@
                         </span>
                     </div>
                 </form>
+            </div>
+            <div class="col-md-8">
+                <?php
+                if($_SESSION['search_homes'])
+                for($i = 0; $i<$rows; $i++)
+                { ?>
+                <div class="page-cards">
+                    <div class="home-card">
+                        <div class="row" style="background-color: lightgrey; padding:5px;">
+                            <p class="house-name">
+                                <a href="view-home.php" style="text-decoration: none;">
+                                <?php 
+                                echo $hname[$i]; 
+                                $_SESSION['house_name'] = $hname[$i]; ?>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" id="house-detail">
+                                <p>Builtup : <?php echo $builtup[$i]; ?></p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Deposit : <?php echo $deposit[$i]; ?></p>
+                            </div>
+                            <div class="col-md-4" id="house-detail">
+                                <p>Rent : <?php echo $rent_arr[$i]; ?></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-couch" style="font-size:30px"></i>
+                                <p>FURNISHING : <?php echo $furnish_arr[$i]; ?></p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-birthday-cake" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AGE OF THE BUILDING : <?php echo $age_arr[$i]; ?></p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-user" aria-hidden="true" style="font-size:30px"></i>
+                                <p>PREFERRED TENANTS : <?php echo $tenant_arr[$i]; ?></p>
+                            </div>
+                            <div class="col-md-6" style="color:black">
+                                <i class="fa fa-key" aria-hidden="true" style="font-size:30px"></i>
+                                <p>AVAILABILITY : <?php echo $avail_arr[$i]; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php }
+                else
+                {?>
+                    <div class = "page-cards">
+                        <div class = "home-card">
+                            <h1><?php echo $message;?></h1>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
