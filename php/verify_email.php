@@ -9,11 +9,20 @@
         $result = $con->query($sql);
         if($result->num_rows!=0)
         {
-            ob_start();
-            $text = 'Thank You for Signing up in Brokfree!';
-            include "../html/thank-you.html";
-            $out = ob_get_clean();
-            echo $out;
+            if($_SESSION['forgot']){
+                ob_start();
+                $text = 'Welcome back to Brokfree!';
+                include "../html/thank-you.html";
+                $out = ob_get_clean();
+                echo $out;
+            }
+            else{
+                ob_start();
+                $text = 'Thank You for Signing up in Brokfree!';
+                include "../html/thank-you.html";
+                $out = ob_get_clean();
+                echo $out;
+            }
         }
         else 
         {

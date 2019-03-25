@@ -4,8 +4,9 @@ $user=$pass="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $user = test_input($_POST['uname']);
 $pass = test_input($_POST['password']);
+$hash = md5($pass);
 $con = new mysqli('localhost','root','Aditya@1999','brokfree'); //The Aditya@1999 is the password for your mysql server.
-$sql = "select * from login where uname = '$user' and password = '$pass'";
+$sql = "select * from login where uname = '$user' and hash = '$hash'";
 $result = $con->query($sql);
 $num = $result->num_rows;
 if($num==0)
@@ -24,6 +25,7 @@ else{
             $_SESSION['email']=$row['email'];
             $_SESSION['date']=$row['date'];
             $_SESSION['password']=$row['password'];
+            $_SESSION['hash']=$row['hash'];
         }
     }
     header('location:homepage.php');
@@ -63,16 +65,20 @@ function test_input($data) {
                         </label>
                         <input type="password" required autocomplete="off" name = "password">
                     </div>
-                    
+                    <p>
+                        <a href = '../html/forgot_password.html' style = 'color : white; text-decoration : none; float: right; margin-top: -25px; margin-bottom: 10px;'>Forgot Password?</a>
+                    </p>
                     <button class="button button-block" type = 'submit' name = 'submit'>Log In</button>
                     <button class="button button-block" type = 'button' style = "padding : 10px; margin-top : 30px;"><a href = "../html/signup.html" style = "color: white; padding : 5px; text-decoration : none;">Don't have an account? Click here...</a></button>
                 </form>
                 <h4 style = "color:white;">
-                <?php 
+                <?php
                 if($user=="")
                     echo "";
-                else
-                    echo "Invalid password or username, please try again";?></h4>
+                else{
+                    echo "Invalid password or username! Please try again...";
+                }
+                ?></h4>
             </div>
         </div>
     </div> 

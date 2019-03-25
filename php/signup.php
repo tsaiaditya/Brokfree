@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['forgot']=FALSE;
 if(isset($_POST['submit'])){
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
@@ -37,19 +38,25 @@ if($con->query($sql)===TRUE){
     $name = $fname . " " . $lname;
     $to = $email;
     $subject = 'Brokfree Signup Verification';
-    $message = "
-    Thank you $name for signing up to our website!
-    Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
-
-    ------------------------
-    Username : $uname
-    Password : $password
-    ------------------------
-
-    Please copy the link below to activate your account : 
-    localhost/Brokfree/php/verify_email.php?email=$email&hash=$hash
+    $link = "";
+    $html_message = "
+    <h1>Thank you $name for signing up to our website!</h1>
+    <p>Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.</p>
+    <br>
+    <p>------------------------</p>
+    <p>Username : $uname</p>
+    <p>Password : $password</p>
+    <p>------------------------</p>
+    <br>
+    </p>
+    <p>Please <a href = 'localhost/Brokfree/php/verify_email.php?email=$email&hash=$hash'>Click here</a> to activate your account!!</p>
     ";
     $headers = 'From:noreply@localhost'.'\r\n';
+    $semi_rand = md5(time()); 
+    $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
+    $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
+    $message = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" .
+    "Content-Transfer-Encoding: 7bit\n\n" . $html_message . "\n\n";
     mail($to,$subject,$message,$headers);
 }
 else {
