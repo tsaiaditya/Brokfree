@@ -4,8 +4,6 @@ body {
   content:'';
   width:100vw;
   height:100vh;
-  background-image: url(https://i.imgur.com/w439mEw.jpg);
-  background-attachment:fixed;
   background-repeat: no-repeat;
   background-position: center center;
   opacity:0;
