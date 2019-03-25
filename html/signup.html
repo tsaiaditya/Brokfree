@@ -97,3 +97,7 @@
     </script>
 </body>
 </html>
+if ((preg_match("/^[a-zA-Z'-]+$/",$fname)) && (preg_match("/^[a-zA-Z'-]+$/",$lname)) && (filter_var($email,
+FILTER_VALIDATE_EMAIL)) && (preg_match('/^\d{10}$/',$mob)) &&
+(preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $password)) )
+{
