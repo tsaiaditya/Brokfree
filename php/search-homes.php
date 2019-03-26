@@ -130,7 +130,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </script>
 
 <body style="background-color:rgb(238, 114, 13)" onload="document.body.classList.add('loaded')">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -156,7 +156,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" style = "margin-top:50px;">
         <div class="row">
             <div class="col-md-4">
                 <form action="../php/search-homes.php" method="POST">

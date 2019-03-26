@@ -27,10 +27,9 @@ function test_input($data) {
 </head>
 
 <body onload="document.body.classList.add('loaded')">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                
                 <a class="navbar-brand" href="homepage.php">BrokFree</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
@@ -49,7 +48,7 @@ function test_input($data) {
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" style = "margin-top:60px;">
         <div class="heading">
             <p style="font-family: cursive;font-size:35px; color:rgb(0, 0, 0); overflow:visible">Rental agreements
                 without the intervention of Broker.</p>
