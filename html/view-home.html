@@ -62,12 +62,12 @@
                     <a id="get_location" href="" style="color:white;">Click here to get the home's location</a>
                 </div>
                 <div id="Map">
-                    <iframe id="google_map" width="640" height="490" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in?output=embed"></iframe>
+                    <iframe id="google_map" width="640" height="550" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in?output=embed"></iframe>
                 </div>
             </div>
             <div class="col-md-5" style="margin-top:43px; box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);">
-                <div class="row">
-                    <div class="col-md-6" id="in-detail">
+                <div class="row" style = "border:0.5px solid black; border-bottom:none;">
+                    <div class="col-md-6" id="in-detail" style = "border-right:0.5px solid black;">
                         <i class="fa fa-bed" aria-hidden="true" style="font-size: 51px;"></i>
                         <p><b>No. of Bedrooms : </b><?= $bedroom?></p>
                     </div>
@@ -76,8 +76,8 @@
                         <p><b>Property type : </b><?= $prop_type?></p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6" id="in-detail">
+                <div class="row" style = "border:0.5px solid black; border-bottom:none;">
+                    <div class="col-md-6" id="in-detail" style = "border-right: 0.5px solid black;">
                         <i class="fa fa-user" aria-hidden="true" style="font-size: 51px;"></i>
                         <p><b>Tenants preferred : </b><?= $preferred_tenants?></p>
                     </div>
@@ -86,9 +86,9 @@
                         <p><b>Availability : </b><?= $availability?></p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6" id="in-detail">
-                        <i class="fa fa-parking"  style="font-size: 70px;"></i>
+                <div class="row" style = "border:0.5px solid black; border-bottom:none;">
+                    <div class="col-md-6" id="in-detail" style = "border-right: 0.5px solid black;">
+                        <i class="fa fa-parking"  style="font-size: 51px;"></i>
                         <p><b>Parking facility : </b><?= $parking?></p>
                     </div>
                     <div class="col-md-6" id="in-detail">
@@ -96,15 +96,14 @@
                         <p><b>Age of the Building : </b><?= $age?></p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6" id="in-detail">
+                <div class="row" style = "border:0.5px solid black;">
+                    <div class="col-md-6" id="in-detail" style = "border-right: 0.5px solid black;">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIfSURBVGhD7ZkxaxVBFEZfOiuTTlGwSSFaiEkqbfwBtipBC4tgERDRLqCNIKidIYgEBLFIHUFEDYQQlDRaqEFsLBLBX5BCREXPB2/gYxmdXVx3VpgDh/Dmzr3Z74Xs2903KBQK/4xT+LplNbNzZvFny2pm55Qgf7AXQT7g6Yaqx2f0IsgLbIp6fEYJ8jeUIEYJ0iYliFGCtEkJYpQgbVK9H7mPTVGPz8hyP/LfsGv4s080OqYp/ITf8Z4WesIi6ph0bBNaSPEc/R/wGObmOPoxPcMkK+hNfbRWkEncxtiAPqhj0zHW4iDGhuT2B+7H2tzG2KA+eA1rMYKf0Zv1CayzmVwYrgWfYqi5J9D3Sa3F9mqG73uAofZmuBbUA4taHEVvlDMYmEOvLWGMUfR9UmsxNMP33cTAFfSaHMck1cYvuBsDXQfZg9/Q6/7G/hb9Wb3pMTpdBxFr6PU7mOQletNVdHIE0WuvP8Ek79GbptHJEeQCen0Dk1Q/DE+ikyPIWfT6O0yyid50Dp0cQS6h19cxiTZ503V0cgS5i15/hEl01+ZNq+jkCPIWvX4Lk1xEb9I5fC8Gug5yGL0mz2CSI1htvIyBroPcQK/pwnEf1uIjerNOAOHLmeov1XWYf3kTPI++T2ottrf6NGUZQ21ruBasdeoN6B3x5j6pS6jaHMCvGBuU0x0cw0Y8xNiwnM5jYw6hPzzL7StsdHdYKBQCg8Evm0cT/kkHSrIAAAAASUVORK5CYII=">
                         <p><b>No. of Balconies : </b><?= $balcony?></p>
                     </div>
                     <div class="col-md-6" id="in-detail">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEVSURBVGhD7dkxCsJAEAXQYK14EsHOxmuIZ/AE2mlhKdh5Am08hCcQrAQLG8FCrbyB/oEEFnYSk2yMI/wPr9pJdn+zQYwYhgnOHPYZZD00dewRbeCVQdZDU8ceLFIktRTpwSCDrIemjj0YJjQNGML4T8hZ5cxelqDdGJYtwMsVtGHL5MxenqANWyZn9sIiP8Qi1pgpcgL3d8cDtLk0Zor0wc0KtLk0LFI1FomVKjKCPOmA9rxoQ5HIntp7EiySJyyi5CtFLuB+vNIcQXteHMCd7YKbCbjrsqf2nkSpIt/A6zfGIlXbwdZxBm0ujZkioVjEGhaxRi1yB23Ysht4+fRni0Vr8NKCGbj3umVTaALDMAzDBCaK3l2F8UXRGSG8AAAAAElFTkSuQmCC" height='58px'>
-                        <p style="display:inline; margin-left:30px; font-size: 16px; text-align: center; "><b>Power Backup</b></p>
-                        <p style="display:inline; font-size: 16px"> : <?= $power?></p>
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEVSURBVGhD7dkxCsJAEAXQYK14EsHOxmuIZ/AE2mlhKdh5Am08hCcQrAQLG8FCrbyB/oEEFnYSk2yMI/wPr9pJdn+zQYwYhgnOHPYZZD00dewRbeCVQdZDU8ceLFIktRTpwSCDrIemjj0YJjQNGML4T8hZ5cxelqDdGJYtwMsVtGHL5MxenqANWyZn9sIiP8Qi1pgpcgL3d8cDtLk0Zor0wc0KtLk0LFI1FomVKjKCPOmA9rxoQ5HIntp7EiySJyyi5CtFLuB+vNIcQXteHMCd7YKbCbjrsqf2nkSpIt/A6zfGIlXbwdZxBm0ujZkioVjEGhaxRi1yB23Ysht4+fRni0Vr8NKCGbj3umVTaALDMAzDBCaK3l2F8UXRGSG8AAAAAElFTkSuQmCC" height='51px'>
+                        <p><b>Power Backup : </b><?= $power?></p>
                     </div>
                 </div>
             </div>

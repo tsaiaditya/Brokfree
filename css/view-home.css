@@ -30,14 +30,16 @@ body {
 }
 .link {
     background-color:orange;
-    margin: 10px 195px 10px 180px;
+    margin: 10px 190px 20px 180px;
     font-size:16px;
     text-decoration: none;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
 }
+.row{
+    padding:5px;
+}
 #in-detail {
     display:block;
-    border:1px solid black;
     padding:20px;
     
 }
