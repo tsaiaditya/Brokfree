@@ -43,13 +43,24 @@ session_start();
         $balcony = $_POST['no_of_balconies'];
         $con = new mysqli('localhost','root','Aditya@1999','brokfree');
         $sql = "INSERT INTO house VALUES('$city','$latitude','$longitude','$hname','$addr','$description','$furnish_type','$direction','$water_supply','$no_of_bathrooms','$security','$non_veg_allowance','$lift_facility','$airconditioner','$swimming_pool','$servant_room','$gas_pipeline','$sewage_treatment','$visitor_parking','$gym_facility','$club_house','$child_play_area','$park','$house_keeping','$internet','$intercom','$fire_safety','$shopping','$rainwater_harvesting','$power_backup','$rentpm/M','$sqft','$deposit','$no_of_bedrooms Bedroom','$prop_type','$tenant_type','$possession_type','$parking_type','$building_age years','$balcony')";
-        if ($con->query($sql) === TRUE) {
-            header('location: ../html/registered.html');
-        } else {
-            //echo "Data not sucessfully inserted";
-            header('location: ../html/signup-login.html');
+        if($prop_type!="" && $possession_type!="" && $tenant_type!="" && $parking_type!="" && $furnish_type!="" && $direction!="" && $water_supply!="" && $security!=""){
+            if($rentpm>0 && $building_age>0 && $sqft>0 && $deposit>0 && $balcony>0 && $no_of_bathrooms>0 && $no_of_bedrooms>0)
+            {
+                if ($con->query($sql) === TRUE) {
+                    header('location: ../html/registered.html');
+                } else {
+                    //echo "Data not sucessfully inserted";
+                    header('location: ../html/signup-login.html');
+                }   
+                $con->close();
+            }
+            else {
+                header("location:../html/posting_integer_error.html");
+            }
         }
-        $con->close();
+        else{
+            header("location:../html/posting_error.html");
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -102,7 +113,7 @@ session_start();
                 <input class="normal" placeholder="Full Address..." oninput="this.className = ''" name="addr">
             </p>
             <p>
-                <input class="normal" placeholder="Rent per Month..." oninput="this.className = ''" name="rentpm">
+                <input type = "number" class="normal" placeholder="Rent per Month..." oninput="this.className = ''" name="rentpm">
             </p>
             <p>
                 <input type = "number" class="normal" placeholder="Dimension of land... (in sqft.)" oninput="this.className = ''"
@@ -130,7 +141,7 @@ session_start();
         </div>
         <div class="tab">Phase 2:
             <p>
-                <input class="normal" placeholder="Number of Bedrooms in the house..." oninput="this.className = ''" name="no_of_bedrooms">
+                <input type = "number" class="normal" placeholder="Number of Bedrooms in the house..." oninput="this.className = ''" name="no_of_bedrooms">
             </p>
             <p class="radio">Property Type ?<br><br>
                 <input class="radio-type" type="radio" name="prop_type" value="Apartment" required>Apartment<br>
@@ -147,12 +158,12 @@ session_start();
                 <input class="radio-type" type="radio" name="possession_type" value="Few Weeks">Few Weeks<br>
             </p>
             <p class="radio">Parking Type ?<br><br>
-                <input class="radio-type" type="radio" name="parking_type" value="Bike only" required>Bike only<br>
+                <input class="radio-type" type="radio" name="parking_type" value="Bike" required>Bike only<br>
                 <input class="radio-type" type="radio" name="parking_type" value="Bike and Car">Bike and Car<br>
-                <input class="radio-type" type="radio" name="parking_type" value="Car only">Car only<br>
+                <input class="radio-type" type="radio" name="parking_type" value="Car">Car only<br>
             </p>
             <p>
-                <input class="normal" placeholder="Age of the Building..." oninput="this.className = ''" name="building_age">
+                <input type = "number" class="normal" placeholder="Age of the Building..." oninput="this.className = ''" name="building_age">
             </p>
             <p class="radio">Furnishing ?<br><br>
                 <input class="radio-type" type="radio" name="furnish_type" value="Semi" required>Semi-Furnished<br>

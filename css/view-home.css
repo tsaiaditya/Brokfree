@@ -1,13 +1,8 @@
 body {
-  margin:0;
-  padding:0;
-  content:'';
-  width:100vw;
-  height:100vh;
-  background-repeat: no-repeat;
-  background-position: center center;
-  opacity:0;
-  transition: opacity 1s ease;
+    margin:0; 
+    padding:0; 
+    opacity:0;  
+    transition:opacity 1s ease;     
 }
 .loaded {
     opacity:1;

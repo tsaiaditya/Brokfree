@@ -35,12 +35,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $furnish = $_POST['furnish'];    
         $_SESSION['search_homes'] = TRUE;
         $con = new mysqli('localhost','root','Aditya@1999','brokfree');
-        $sql = "select * from house where loc = '$loc' and bedroom like '$bedroom' and preferred_tenants like '$family' and parking like '$parking' and furnishing like '$furnish'"; 
+        $sql = "select * from house where loc = '$loc' and bedroom = '$bedroom' and preferred_tenants = '$family' and parking = '$parking' and furnishing = '$furnish'"; 
         $result = $con->query($sql);
-        if(!$result)
-        {
-            trigger_error('invalid query : '.$con->error);
-        }
         if($result->num_rows == 0) {
             $message = "No homes found for the specified...";
             $_SESSION['search_homes'] = FALSE;
@@ -53,7 +49,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 $temp = explode('/',$rent);
                 if((int)$temp[0]>=$min && (int)$temp[0]<=$max)
                 {   
-                    // echo $row['hname']."<br>";
                     $actual_rent = (int)$temp[0];
                     array_push($hname,$row['hname']);
                     array_push($builtup,$row['builtup']);
@@ -208,7 +203,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                             <span class="checkmark1"></span>
                         </label>
                         <label class="pref-tenant">Doesn't Matter
-                            <input type="radio" name="family" value="Doesn">
+                            <input type="radio" name="family" value="Doesn't matter">
                             <span class="checkmark1"></span>
                         </label>
                         <span class="filter-panel-header">Furnishing Type : </span>
